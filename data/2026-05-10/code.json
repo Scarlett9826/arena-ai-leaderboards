@@ -2,8 +2,8 @@
   "meta": {
     "leaderboard": "code",
     "source_url": "https://arena.ai/leaderboard/code",
-    "fetched_at": "2026-05-10T05:08:01.490674+00:00",
-    "last_updated": "May 7, 2026",
+    "fetched_at": "2026-05-10T07:00:25.541678+00:00",
+    "last_updated": null,
     "model_count": 77
   },
   "models": [
@@ -425,7 +425,7 @@
       "rank": 47,
       "model": "hunyuan-hy3-preview",
       "vendor": "Tencent",
-      "license": "open",
+      "license": null,
       "score": 1367,
       "ci": 18,
       "votes": 1228

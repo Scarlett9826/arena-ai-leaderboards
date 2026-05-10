@@ -2,9 +2,9 @@
   "meta": {
     "leaderboard": "vision",
     "source_url": "https://arena.ai/leaderboard/vision",
-    "fetched_at": "2026-05-10T05:08:01.490674+00:00",
+    "fetched_at": "2026-05-10T07:00:25.541678+00:00",
     "last_updated": null,
-    "model_count": 30
+    "model_count": 20
   },
   "models": [
     {
@@ -186,96 +186,6 @@
       "score": 1250,
       "ci": 8,
       "votes": 13107
-    },
-    {
-      "rank": 21,
-      "model": "grok-4.3",
-      "vendor": "xAI",
-      "license": "proprietary",
-      "score": 1249,
-      "ci": 13,
-      "votes": 2090
-    },
-    {
-      "rank": 22,
-      "model": "kimi-k2.5-thinking",
-      "vendor": "Moonshot",
-      "license": "open",
-      "score": 1247,
-      "ci": 7,
-      "votes": 12824
-    },
-    {
-      "rank": 23,
-      "model": "gpt-5.2-high",
-      "vendor": "OpenAI",
-      "license": "proprietary",
-      "score": 1246,
-      "ci": 7,
-      "votes": 13323
-    },
-    {
-      "rank": 24,
-      "model": "gemini-2.5-pro",
-      "vendor": "Google",
-      "license": "proprietary",
-      "score": 1246,
-      "ci": 5,
-      "votes": 86250
-    },
-    {
-      "rank": 25,
-      "model": "grok-4.20-multi-agent-beta-0309",
-      "vendor": "xAI",
-      "license": "proprietary",
-      "score": 1245,
-      "ci": 9,
-      "votes": 7167
-    },
-    {
-      "rank": 26,
-      "model": "gemma-4-26b-a4b",
-      "vendor": "Google",
-      "license": "open",
-      "score": 1243,
-      "ci": 9,
-      "votes": 8640
-    },
-    {
-      "rank": 27,
-      "model": "qwen3.5-397b-a17b",
-      "vendor": "Alibaba",
-      "license": "open",
-      "score": 1241,
-      "ci": 8,
-      "votes": 10254
-    },
-    {
-      "rank": 28,
-      "model": "chatgpt-4o-latest-20250326",
-      "vendor": "OpenAI",
-      "license": "proprietary",
-      "score": 1240,
-      "ci": 6,
-      "votes": 23583
-    },
-    {
-      "rank": 29,
-      "model": "kimi-k2.5-instant",
-      "vendor": "Moonshot",
-      "license": "open",
-      "score": 1239,
-      "ci": 11,
-      "votes": 3910
-    },
-    {
-      "rank": 30,
-      "model": "gemini-3.1-flash-lite-preview",
-      "vendor": "Google",
-      "license": "proprietary",
-      "score": 1239,
-      "ci": 8,
-      "votes": 12171
     }
   ]
 }

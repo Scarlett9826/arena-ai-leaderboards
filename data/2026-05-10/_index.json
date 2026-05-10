@@ -1,6 +1,6 @@
 {
   "date": "2026-05-10",
-  "fetched_at": "2026-05-10T05:08:01.490674+00:00",
+  "fetched_at": "2026-05-10T07:00:25.541678+00:00",
   "leaderboards": {
     "code": {
       "model_count": 77
@@ -30,7 +30,7 @@
       "model_count": 6
     },
     "vision": {
-      "model_count": 30
+      "model_count": 20
     }
   },
   "errors": []
