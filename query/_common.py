@@ -83,6 +83,135 @@ AA_RANK_KEYS: tuple[str, ...] = (
     "price_blended",
 )
 
+# --------------------------------------------------------------------------- #
+# 中文/英文 关键词 → 候选 board 列表                                            #
+# --------------------------------------------------------------------------- #
+#
+# OpenClaw 收到用户的中文/口语化提问后，可以传一个关键词进 --subset，
+# expand_subset_query 会把它展开成实际的 board 子串集合（OR 匹配）。
+#
+# 设计原则：
+# - 每个别名都展开成 *board 子串*（不是精确名），因为同一个语义概念可能
+#   横跨 LMArena 的多个 subset/category，和 AA 的一个/多个 metric。
+# - 子串大小写无关，匹配时统一 lower()。
+# - 找不到的关键词回退到"原样字符串匹配"（兼容老用法）。
+
+BOARD_KEYWORD_ALIASES: dict[str, tuple[str, ...]] = {
+    # --- 总榜 ---
+    "总榜": ("text/overall", "intelligence_index"),
+    "overall": ("text/overall", "intelligence_index"),
+    "综合": ("text/overall", "intelligence_index"),
+    "总分": ("text/overall", "intelligence_index"),
+    "智能指数": ("intelligence_index",),
+    "intelligence": ("intelligence_index",),
+
+    # --- 编程 / 代码 ---
+    "代码": ("text/coding", "webdev", "coding_index", "livecodebench", "scicode", "terminalbench"),
+    "编程": ("text/coding", "webdev", "coding_index", "livecodebench", "scicode", "terminalbench"),
+    "代码能力": ("text/coding", "coding_index", "livecodebench"),
+    "coding": ("text/coding", "coding_index", "livecodebench", "scicode"),
+    "code": ("text/coding", "coding_index", "livecodebench"),
+    "前端": ("webdev",),
+    "网页": ("webdev",),
+    "webdev": ("webdev",),
+    "react": ("webdev-react",),
+    "html": ("webdev-html",),
+
+    # --- 数学 ---
+    "数学": ("text/math", "industry_mathematical", "math_index", "math_500", "aime", "aime_25"),
+    "math": ("text/math", "industry_mathematical", "math_index", "math_500", "aime", "aime_25"),
+    "aime": ("aime", "aime_25"),
+
+    # --- 推理 / 难题 / 知识 ---
+    "推理": ("text/hard_prompts", "text/expert", "gpqa", "hle", "intelligence_index"),
+    "难题": ("text/hard_prompts", "hle"),
+    "hard": ("text/hard_prompts", "hle"),
+    "专家": ("text/expert", "gpqa", "hle"),
+    "知识": ("mmlu_pro", "gpqa"),
+    "科学": ("scicode", "gpqa"),
+    "科研": ("scicode", "gpqa"),
+
+    # --- 语言 ---
+    "中文": ("text/chinese", "vision/chinese"),
+    "chinese": ("text/chinese", "vision/chinese"),
+    "英文": ("text/english",),
+    "english": ("text/english",),
+    "法语": ("text/french",), "french": ("text/french",),
+    "德语": ("text/german",), "german": ("text/german",),
+    "日语": ("text/japanese",), "japanese": ("text/japanese",),
+    "韩语": ("text/korean",), "korean": ("text/korean",),
+    "西班牙语": ("text/spanish",), "spanish": ("text/spanish",),
+    "俄语": ("text/russian",), "russian": ("text/russian",),
+
+    # --- 指令 / 长上下文 / 多轮 ---
+    "指令": ("text/instruction_following", "ifbench"),
+    "指令遵循": ("text/instruction_following", "ifbench"),
+    "instruction": ("text/instruction_following", "ifbench"),
+    "长上下文": ("text/longer_query",),
+    "长文本": ("text/longer_query",),
+    "long": ("text/longer_query",),
+    "多轮": ("text/multi_turn",),
+
+    # --- 创意写作 ---
+    "写作": ("text/creative_writing", "vision/creative_writing"),
+    "创意": ("text/creative_writing",),
+    "创意写作": ("text/creative_writing", "vision/creative_writing"),
+    "creative": ("text/creative_writing",),
+    "creative_writing": ("text/creative_writing", "vision/creative_writing"),
+
+    # --- 视觉 ---
+    "视觉": ("vision",),
+    "图像理解": ("vision",),
+    "vision": ("vision",),
+    "ocr": ("vision/ocr",),
+    "图表": ("vision/diagram",),
+
+    # --- 多模态生成 ---
+    "文生图": ("text_to_image",),
+    "图生图": ("image_edit",),
+    "图像编辑": ("image_edit",),
+    "文生视频": ("text_to_video",),
+    "图生视频": ("image_to_video",),
+    "视频编辑": ("video_edit",),
+
+    # --- 搜索 / 文档 / 行业 ---
+    "搜索": ("search",),
+    "search": ("search",),
+    "文档": ("document",),
+    "document": ("document",),
+    "医疗": ("industry_medicine_and_healthcare",),
+    "金融": ("industry_business_and_management_and_financial_operations",),
+    "法律": ("industry_legal_and_government",),
+
+    # --- 速度 / 价格 ---
+    "速度": ("output_speed", "ttft"),
+    "延迟": ("ttft",),
+    "ttft": ("ttft",),
+    "价格": ("price_blended",),
+    "便宜": ("price_blended",),
+
+    # --- Agent / 工具 ---
+    "agent": ("tau2", "tau_banking", "terminalbench"),
+    "工具": ("tau2", "tau_banking"),
+    "tool": ("tau2",),
+}
+
+
+def expand_subset_query(q: str) -> tuple[str, ...]:
+    """把用户传的 --subset 关键词展开成候选 board 子串列表。
+
+    - 完全精确匹配优先（不区分大小写）。
+    - 没命中别名表 → 返回 (q,) 走老逻辑（子串匹配 board / subset）。
+    """
+    if not q:
+        return ()
+    key = q.strip().lower()
+    if key in BOARD_KEYWORD_ALIASES:
+        return BOARD_KEYWORD_ALIASES[key]
+    # 也允许原始中文 key 直接命中（不 lower 会丢中文吗？中文 lower 是幂等的，所以 ok）
+    return (q,)
+
+
 # board key -> ("section", "evaluation key" or attribute path).
 # Used to resolve the *score* that corresponds to the rank.
 _AA_EVAL_KEY: dict[str, tuple[str, str]] = {

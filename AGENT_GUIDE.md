@@ -131,13 +131,46 @@ data/artificial_analysis/
 
 **调用**：
 ```bash
-python query/rank.py <model-name> [--board lmarena|aa] [--top 5]
+python query/rank.py <model-name> [--board lmarena|aa] [--subset KEYWORD] [--top 5]
 ```
 
 **如何回复**：
-1. 完整转发脚本 stdout（已是 markdown 表格）
+1. 完整转发脚本 stdout（已是 markdown 表格，最顶部"📌 总榜位置"区块包含 LMArena `text/overall` 和 AA `intelligence_index` 这两个对外门面榜单）
 2. 末尾追加一句中文简评，例如指出 MiMo 在哪个 category 表现最突出
 3. 模型名不明确时，先 `python query/rank.py --list` 列出所有 MiMo 型号
+
+#### 3.1.1 ⭐ 分榜查询 cheat sheet（核心能力）
+
+用户问"在 X 方面排第几"时，把 X 直接传给 `--subset`，脚本会自动把中文关键词展开成 LMArena/AA 所有相关 board 的 OR 匹配。**支持的别名**（节选）：
+
+| 用户说的词 | 传入 --subset | 实际命中 |
+|---|---|---|
+| 总榜 / 综合 / 总分 | `总榜` | LMArena `text/overall` + AA `intelligence_index` |
+| 代码 / 编程 / coding | `代码` | LMArena `text/coding` + LMArena `webdev/*` + AA `coding_index` + AA `livecodebench` + AA `scicode` |
+| 数学 / math | `数学` | LMArena `text/math` + `text/industry_mathematical` + AA `math_index` + `math_500` + `aime` + `aime_25` |
+| 中文 / chinese | `中文` | LMArena `text/chinese` + `vision/chinese` |
+| 推理 / hard | `推理` | LMArena `text/hard_prompts` + `text/expert` + AA `gpqa` + `hle` + `intelligence_index` |
+| 指令遵循 / instruction | `指令遵循` | LMArena `text/instruction_following` + AA `ifbench` |
+| 长上下文 / 长文本 | `长上下文` | LMArena `text/longer_query` |
+| 多轮 | `多轮` | LMArena `text/multi_turn` |
+| 创意写作 | `创意写作` | LMArena `text/creative_writing` + `vision/creative_writing` |
+| 前端 / 网页 / webdev | `前端` | LMArena `webdev/*` 全部 4 个 category |
+| 视觉 / 图像理解 | `视觉` | LMArena `vision/*` 全部 |
+| 文生图 / 图生图 / 文生视频 | 同上原词 | 对应 LMArena 多模态生成 subset |
+| 搜索 / 文档 | `搜索` / `文档` | LMArena `search/*` / `document/*` |
+| 速度 / 延迟 | `速度` | AA `output_speed` + `ttft` |
+| 价格 / 便宜 | `价格` | AA `price_blended` |
+| 任意精确 board key | 直接传 | 如 `text/coding`、`gpqa`、`mmlu_pro`、`webdev-react`、`industry_legal_and_government` |
+
+**完整别名表**：见 `query/_common.py` 的 `BOARD_KEYWORD_ALIASES`（80+ 个映射，含 8 种语言、3 类行业、所有 AA 14 个 metric）。
+
+#### 3.1.2 分榜未测试时的处理
+
+如果该关键词在该模型上完全没数据，脚本会输出错误提示。例如查 `mimo-v2.5-pro --subset aime`：
+- AA 没给 mimo 跑 AIME → 脚本回复"在子榜关键词 `aime` 对应的榜单上 **未被测试**"
+- 不要把 `null` 解释成"垫底"（详见 §6.1 场景 B）
+
+**正确反应**：把脚本的"未被测试"原话转发给用户，并建议用更宽的关键词（如 `aime` → `数学` → `推理`）重新查。
 
 **示例对话**：
 ```
@@ -303,7 +336,7 @@ GitHub Issues 里有完整告警历史（按日期开），你可以建议用户
 - ❌ **不要把 API key 贴进消息**。`.env` 在 gitignore 里，别去 cat。
 - ❌ **不要回答 MiMo 项目内部信息**（训练数据、参数量、内部代号、roadmap）。本仓库只追踪外部榜单，内部信息你既没有也不该泄露。
 - ❌ **不要把 `null` rank 当成"很差"**。`null` = 该榜没测过这个模型。
-- ❌ **不要用 LMArena 一个 category 的 rank 代表"总排名"**。LMArena 没有"总榜"，必须说明 category。
+- ❌ **不要混淆总榜和分榜**。LMArena 总榜 = `text/overall`（368 模型），AA 总榜 = `intelligence_index`（535 模型）；其它 category / metric 都是分榜。回答"X 排第几"先报总榜，再补分榜亮点。
 - ✅ **找不到数据时坦诚说"查不到"**，列出可能原因（模型名拼错 / 该榜没测 / 数据 stale）。不要硬编。
 - ✅ **数据 stale 时主动提示**（`latest.json` 日期距今 > 3 天）："⚠️ 最新快照是 X 月 X 日，可能 workflow 没跑成功，建议查 GitHub Actions。"
 - ✅ **不确定模型名时先 `--list`**，让用户从候选里选。
@@ -319,35 +352,39 @@ GitHub Issues 里有完整告警历史（按日期开），你可以建议用户
 | LMArena subset 更新错位 | text 周更，document 月更 —— 同一份快照里 publish_date 不同 | 引用具体 subset 的 `leaderboard_publish_date` |
 | AA `null` 字段 | 比如 `mimo-v2.5-pro` 的 `livecodebench` 是 `null` | 显示为 "—" 或 "未测试"，不要写成"第 N 名" |
 | 用户问"最新" | 当前日期 ≠ 数据日期 | 先读 `data/<src>/latest.json` 的 `date`，回复里也带上 |
-| LMArena 没有"总榜" | 用户问 "mimo 总榜第几" 是无意义的 | 解释 LMArena 按 category 排，列出几个主流 category 的 rank |
+| 总榜 vs 分榜 | 用户问 "mimo 排第几" 通常想知道总榜 | LMArena 总榜 = `text/overall`，AA 总榜 = `intelligence_index`，直接报这两个数字，再补 1-2 个亮眼分榜 |
 | AA 的 14 个 board 名 | `intelligence_index` 是综合指数；`mmlu_pro`/`gpqa` 是具体测试 | 用户说"AA 总分" → 用 `intelligence_index` |
 | 模型对比时 rank 来自不同 board | 不能直接比 "MiMo coding_index #15" vs "Claude intelligence_index #2" | 同一个 board 才能比 |
 | `data/alerts/<date>.md` 不存在 | 当天 differ 没检测到变化 | 先 `ls`，没有就直接说"今天无 watchlist 变动" |
 
 ### 6.1 ⚠️ 三个最容易出错的场景（必读）
 
-#### 场景 A：用户问"LMArena 总排名"——你绝对不能编一个数字
+#### 场景 A：用户问"X 排第几"——先报总榜，再补分榜
 
-LMArena **根本没有"总榜"**。一个模型在 27 个 category 上有 27 个 rank。比如 mimo-v2.5-pro：
+两个平台都有**总榜**（对外门面）和**分榜**（细分维度）：
 
-```
-text/hard_prompts_english    #6
-text/coding                  #10
-text/overall                 #21    ← "overall" 也只是其中一个 category
-text/german                  #32
-text/russian                 #29
-```
+| 平台 | 总榜 | 分榜数量 | 例 |
+|---|---|---|---|
+| LMArena | `text/overall`（368 模型综合 Elo） | 27 个 category | text/coding、text/math、text/chinese |
+| AA | `intelligence_index`（14 维加权智能指数，535 模型） | 13 个独立 metric | coding_index、math_index、mmlu_pro、gpqa |
 
-❌ **错误回复**：`mimo-v2.5-pro 在 LMArena 排第 21`
-❌ **更错的回复**（取平均/最好）：`mimo-v2.5-pro 在 LMArena 排第 13`
-✅ **正确回复**：
-> mimo-v2.5-pro 在 LMArena 没有单一"总排名"，它在 27 个 category 上各有 rank。主要表现：
-> - text/overall（综合对话）#21
-> - text/coding #10
-> - text/hard_prompts #7（最强项）
-> 如需查看其他 category，请告诉我具体类别。
+比如 mimo-v2.5-pro：
+- LMArena 总榜 #21/368　← 这就是"在 LMArena 排第几"的标准答案
+- AA 总榜 #22/535　← 这就是"在 AA 排第几"的标准答案
+- LMArena 分榜：text/hard_prompts_english #6（最强）、text/coding #10、text/german #32（最弱）
+- AA 分榜：coding_index #15、gpqa #52、hle #24
 
-调用 `python query/rank.py mimo-v2.5-pro`，把输出**完整**转发给用户，不要自己挑数字。
+❌ **错误回复**（瞎挑一个分榜）：`mimo-v2.5-pro 在 LMArena 排第 6`（这是 hard_prompts_english 单项）
+❌ **错误回复**（强行说"无总榜"）：`LMArena 没有总榜，需要看具体 category`（你之前可能听过这种说法，是错的）
+✅ **正确回复模板**：
+> mimo-v2.5-pro 当前位置（数据日期 YYYY-MM-DD）：
+> - **LMArena 总榜**（text/overall）#21/368
+> - **AA 总榜**（intelligence_index）#22/535
+>
+> 分榜亮点：LMArena `text/hard_prompts_english` #6（最强项）、AA `coding_index` #15。
+> 如需查看其它分榜（如 math/coding/中文），告诉我维度即可。
+
+实操：调用 `python query/rank.py mimo-v2.5-pro`，输出已经把"📌 总榜位置"放在最显眼位置，把它完整转发即可。
 
 #### 场景 B：AA 的 `null` 字段——绝对不是"垫底"
 

@@ -17,6 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from query._common import (  # noqa: E402
     Record,
+    expand_subset_query,
     fmt_rank,
     fmt_score,
     load_full_snapshot,
@@ -85,6 +86,13 @@ def _filter_records(
     board_filter: str,
     subset_filter: str | None,
 ) -> list[Record]:
+    """筛选符合 model + source + subset 关键词的记录。
+
+    subset_filter 通过 expand_subset_query 展开成多个候选子串（OR 匹配）。
+    例如 "数学" → ("text/math", "industry_mathematical", "math_index", "math_500", "aime", "aime_25")
+    匹配 r.board 或 r.subset 中任意一个出现该子串即算命中。
+    """
+    candidates = tuple(c.lower() for c in expand_subset_query(subset_filter)) if subset_filter else ()
     out: list[Record] = []
     for r in records:
         if r.model_name not in model_names:
@@ -93,10 +101,10 @@ def _filter_records(
             continue
         if board_filter == "aa" and r.source != "AA":
             continue
-        if subset_filter:
-            sf = subset_filter.lower()
-            # match either "subset/category" full board, or just subset, or AA board key
-            if sf not in r.board.lower() and sf != r.subset.lower():
+        if candidates:
+            board_lc = r.board.lower()
+            subset_lc = r.subset.lower()
+            if not any(c in board_lc or c in subset_lc for c in candidates):
                 continue
         out.append(r)
     return out
@@ -177,6 +185,14 @@ def render_main(
     ranked = [r for r in rows if r.rank is not None]
     ranked.sort(key=lambda r: (r.rank, r.source, r.board))
 
+    # ----- 📌 总榜位置（最显眼，放最上面）-----
+    overall_block = _build_overall_block(rows)
+    if overall_block:
+        lines.append("## 📌 总榜位置")
+        lines.append("")
+        lines.append(overall_block)
+        lines.append("")
+
     # ----- top highlights -----
     top = ranked[:top_n]
     if top:
@@ -237,34 +253,83 @@ def render_main(
     return "\n".join(lines)
 
 
+def _build_overall_block(rows: list[Record]) -> str:
+    """🌟 总榜（LMArena text/overall + AA intelligence_index）位置高亮。
+
+    这两个是各自平台的"对外门面"总榜：
+    - LMArena text/overall：基于全部 text 类对话的 Bradley-Terry 总分
+    - AA intelligence_index：14 维评测加权综合智能指数
+    """
+    lm_overall = next(
+        (r for r in rows if r.source == "LMArena" and r.board == "text/overall"),
+        None,
+    )
+    aa_overall = next(
+        (r for r in rows if r.source == "AA" and r.subset == "intelligence_index"),
+        None,
+    )
+    if lm_overall is None and aa_overall is None:
+        return ""
+    bullets: list[str] = []
+    if lm_overall is not None:
+        denom = lm_overall.denom or "?"
+        bullets.append(
+            f"- **LMArena 总榜（`text/overall`）**：{fmt_rank(lm_overall.rank)} / {denom}　"
+            f"分数 {fmt_score(lm_overall.score, lm_overall.lower_is_better)}"
+        )
+    else:
+        bullets.append("- **LMArena 总榜（`text/overall`）**：未上榜")
+    if aa_overall is not None:
+        denom = aa_overall.denom or "?"
+        bullets.append(
+            f"- **AA 总榜（`intelligence_index`）**：{fmt_rank(aa_overall.rank)} / {denom}　"
+            f"分数 {fmt_score(aa_overall.score, aa_overall.lower_is_better)}"
+        )
+    else:
+        bullets.append("- **AA 总榜（`intelligence_index`）**：未测试（该模型 AA 未给出综合智能指数）")
+    return "\n".join(bullets)
+
+
 def _build_summary(model: str, rows: list[Record]) -> str:
     ranked = [r for r in rows if r.rank is not None]
     if not ranked:
         return ""
-    lm_ranks = [r.rank for r in ranked if r.source == "LMArena"]
-    aa_rows = [r for r in ranked if r.source == "AA"]
     parts: list[str] = []
-    if lm_ranks:
-        avg = sum(lm_ranks) / len(lm_ranks)
-        best_lm = min((r for r in ranked if r.source == "LMArena"), key=lambda r: r.rank)
-        parts.append(
-            f"在 LMArena 共 {len(lm_ranks)} 个子榜中平均排名 #{avg:.1f}，"
-            f"最强项 `{best_lm.board}` (#{best_lm.rank})"
-        )
+
+    # 1) 优先突出总榜
+    lm_overall = next(
+        (r for r in ranked if r.source == "LMArena" and r.board == "text/overall"),
+        None,
+    )
+    aa_overall = next(
+        (r for r in ranked if r.source == "AA" and r.subset == "intelligence_index"),
+        None,
+    )
+    if lm_overall:
+        parts.append(f"LMArena 总榜 #{int(lm_overall.rank)}/{lm_overall.denom or '?'}")
+    if aa_overall:
+        parts.append(f"AA 综合智能 #{int(aa_overall.rank)}/{aa_overall.denom or '?'}")
+
+    # 2) 再带上分榜亮点
+    lm_rows = [r for r in ranked if r.source == "LMArena"]
+    aa_rows = [r for r in ranked if r.source == "AA"]
+    if lm_rows:
+        # 排除 overall 找最强分项
+        sub_lm = [r for r in lm_rows if r.board != "text/overall"]
+        if sub_lm:
+            best_lm = min(sub_lm, key=lambda r: r.rank)
+            avg = sum(r.rank for r in lm_rows) / len(lm_rows)
+            parts.append(
+                f"LMArena 各分榜平均 #{avg:.1f}，最强分项 `{best_lm.board}` (#{int(best_lm.rank)})"
+            )
     if aa_rows:
-        # surface intelligence/coding/math indices if present
-        idx_priority = ("intelligence_index", "coding_index", "math_index")
+        idx_priority = ("coding_index", "math_index")
         idx_rows = {r.subset: r for r in aa_rows if r.subset in idx_priority}
-        pieces: list[str] = []
         for k in idx_priority:
             if k in idx_rows:
                 rr = idx_rows[k]
-                pieces.append(f"AA `{k}` #{rr.rank}/{rr.denom or '?'}")
-        if pieces:
-            parts.append("，".join(pieces))
-        else:
-            best_aa = min(aa_rows, key=lambda r: r.rank)
-            parts.append(f"AA 最佳子榜 `{best_aa.board}` #{best_aa.rank}")
+                parts.append(f"AA `{k}` #{int(rr.rank)}/{rr.denom or '?'}")
+
     return f"`{model}` " + "；".join(parts) + "。"
 
 
@@ -337,12 +402,35 @@ def main(argv: list[str] | None = None) -> int:
 
     rows = _filter_records(records, group, args.board, args.subset)
     if not rows:
-        print_md(markdown_error(
-            "未找到匹配的子榜",
-            f"`{model}` 在过滤条件 board=`{args.board}`"
-            + (f" subset=`{args.subset}`" if args.subset else "")
-            + " 下没有数据。",
-        ))
+        # 看看展开后的关键词是否在"其它模型"身上能查到——
+        # 如果能，说明该模型在这些榜单上未测试；如果不能，说明关键词拼错了。
+        if args.subset:
+            expanded = expand_subset_query(args.subset)
+            cands_lc = tuple(c.lower() for c in expanded)
+            board_exists_globally = any(
+                any(c in r.board.lower() or c in r.subset.lower() for c in cands_lc)
+                for r in records
+            )
+            if board_exists_globally:
+                body = (
+                    f"`{model}` 在子榜关键词 `{args.subset}` 对应的榜单上 **未被测试 / 未上榜**。\n\n"
+                    f"该关键词展开为以下 board 子串：{', '.join(f'`{e}`' for e in expanded)}\n\n"
+                    f"> AA 评测可能尚未跑该模型，LMArena 可能投票数不足导致未列入。"
+                    f"建议换个更宽的关键词（如 `数学` → `推理`），或不带 --subset 看全部排名。"
+                )
+            else:
+                body = (
+                    f"找不到关键词 `{args.subset}` 对应的任何榜单。\n\n"
+                    f"该关键词展开为：{', '.join(f'`{e}`' for e in expanded)}（在所有模型上都查不到）\n\n"
+                    f"**LMArena 常用关键词**：`总榜` `代码` `数学` `中文` `推理` `指令` `长上下文` `多轮` `创意写作` `webdev`\n\n"
+                    f"**AA 常用关键词**：`总榜` `coding` `gpqa` `mmlu_pro` `hle` `aime` `速度` `价格`"
+                )
+            print_md(markdown_error("未找到匹配的子榜", body))
+        else:
+            print_md(markdown_error(
+                "未找到匹配的子榜",
+                f"`{model}` 在过滤条件 board=`{args.board}` 下没有数据。",
+            ))
         return 1
 
     print_md(render_main(model, rows, meta, top_n=args.top))
