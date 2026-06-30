@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "source": "lmarena",
+    "subset": "video_edit",
+    "source_url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/video_edit/latest-00000-of-00001.parquet",
+    "fetched_at": "2026-06-30T10:09:49+00:00",
+    "leaderboard_publish_date": "2026-05-12",
+    "n_rows": 6,
+    "n_models": 6,
+    "categories": [
+      "overall"
+    ]
+  },
+  "rows": [
+    {
+      "category": "overall",
+      "rank": 1,
+      "model_name": "dreamina-seedance-2.0-720p",
+      "organization": "bytedance",
+      "license": "Proprietary",
+      "rating": 1379.3300086611139,
+      "rating_lower": 1363.7196509556597,
+      "rating_upper": 1394.9403663665676,
+      "variance": 63.43508522842684,
+      "vote_count": 1289
+    },
+    {
+      "category": "overall",
+      "rank": 2,
+      "model_name": "happyhorse-1.0",
+      "organization": "aorizon",
+      "license": "Proprietary",
+      "rating": 1319.308883499063,
+      "rating_lower": 1302.1892471148408,
+      "rating_upper": 1336.4285198832854,
+      "variance": 76.29444010935089,
+      "vote_count": 1004
+    },
+    {
+      "category": "overall",
+      "rank": 3,
+      "model_name": "grok-imagine-video",
+      "organization": "xai",
+      "license": "Proprietary",
+      "rating": 1264.7132060542433,
+      "rating_lower": 1256.169916442816,
+      "rating_upper": 1273.2564956656706,
+      "variance": 19.00002077115382,
+      "vote_count": 9306
+    },
+    {
+      "category": "overall",
+      "rank": 4,
+      "model_name": "kling-o3-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1246.7203942670644,
+      "rating_lower": 1234.5490129435445,
+      "rating_upper": 1258.891775590584,
+      "variance": 38.56413155452214,
+      "vote_count": 4906
+    },
+    {
+      "category": "overall",
+      "rank": 5,
+      "model_name": "kling-o1-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1208.0,
+      "rating_lower": 1198.019219532463,
+      "rating_upper": 1217.980780467537,
+      "variance": 25.93180960434381,
+      "vote_count": 6605
+    },
+    {
+      "category": "overall",
+      "rank": 6,
+      "model_name": "runway-gen4-aleph",
+      "organization": "runway",
+      "license": "Proprietary",
+      "rating": 1204.3708638134806,
+      "rating_lower": 1195.4055321859496,
+      "rating_upper": 1213.3361954410116,
+      "variance": 20.923606094281467,
+      "vote_count": 6291
+    }
+  ]
+}

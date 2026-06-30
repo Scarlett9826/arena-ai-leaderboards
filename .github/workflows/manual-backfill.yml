@@ -1,0 +1,106 @@
+name: Manual Backfill
+
+# Re-run collectors for one or more historical dates.
+# Use sparingly: only LMArena+AA snapshots that the upstream APIs still expose
+# can truly be reproduced; for older dates the collectors may simply re-record
+# "today's" data tagged with the requested date (depends on each collector).
+
+on:
+  workflow_dispatch:
+    inputs:
+      dates:
+        description: 'Comma-separated YYYY-MM-DD list, e.g. "2026-06-28,2026-06-29".'
+        required: true
+        type: string
+      run_diff:
+        description: 'Also run analysis.differ after each date (no Issue created).'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manual-backfill-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'pyproject.toml'
+
+      - name: Install project (editable)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Run collectors for each requested date
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+          RUN_DIFF: ${{ github.event.inputs.run_diff }}
+          DATES_INPUT: ${{ github.event.inputs.dates }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -r -a DATES <<< "$DATES_INPUT"
+          for raw in "${DATES[@]}"; do
+            D=$(echo "$raw" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+            if [[ -z "$D" ]]; then continue; fi
+            if ! [[ "$D" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "::error::Skipping invalid date: '$D' (expected YYYY-MM-DD)"
+              continue
+            fi
+
+            echo "=================================================="
+            echo "Backfilling $D"
+            echo "=================================================="
+
+            # Collectors honor SNAPSHOT_DATE if they support it; otherwise
+            # they fall back to today's date. The env var is harmless either
+            # way.
+            SNAPSHOT_DATE="$D" python -m collectors.lmarena || \
+              echo "::warning::lmarena collector failed for $D"
+            SNAPSHOT_DATE="$D" python -m collectors.artificial_analysis || \
+              echo "::warning::artificial_analysis collector failed for $D"
+
+            if [[ "$RUN_DIFF" == "true" ]]; then
+              BASELINE_DATE="" python -m analysis.differ || \
+                echo "::warning::differ failed for $D"
+            fi
+
+            git add data/
+            if ! git diff --staged --quiet; then
+              git commit -m "data: backfill snapshot $D"
+            else
+              echo "No data changes recorded for $D."
+            fi
+          done
+
+      - name: Push backfilled commits
+        run: |
+          if git log origin/${GITHUB_REF_NAME}..HEAD --oneline | grep -q .; then
+            git push
+          else
+            echo "Nothing to push."
+          fi

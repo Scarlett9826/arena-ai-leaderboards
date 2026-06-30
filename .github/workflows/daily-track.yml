@@ -1,0 +1,152 @@
+name: Daily MiMo Leaderboard Track
+
+on:
+  schedule:
+    # Daily at 01:00 UTC = 09:00 CST (China Standard Time)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      baseline_date:
+        description: 'Baseline date for diff (YYYY-MM-DD). Leave empty to use the most recent prior snapshot.'
+        required: false
+        type: string
+        default: ''
+      skip_issue:
+        description: 'Skip opening a GitHub Issue even if changes are detected.'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-track-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  track:
+    name: Collect, diff, and notify
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      PYTHONUNBUFFERED: "1"
+      # Optional baseline override for diff
+      BASELINE_DATE: ${{ github.event.inputs.baseline_date }}
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set TODAY (UTC)
+        run: echo "TODAY=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'pyproject.toml'
+
+      - name: Install project (editable)
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Collect LMArena snapshot
+        run: python -m collectors.lmarena
+
+      - name: Collect Artificial Analysis snapshot
+        env:
+          AA_API_KEY: ${{ secrets.AA_API_KEY }}
+        run: python -m collectors.artificial_analysis
+
+      - name: Diff against baseline
+        id: diff
+        run: python -m analysis.differ
+
+      - name: Render issue payload
+        id: render
+        if: steps.diff.outputs.has_changes == 'true' && github.event.inputs.skip_issue != 'true'
+        run: python -m analysis.issue_writer
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit data snapshot
+        id: commit
+        run: |
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "data: snapshot ${TODAY}"
+            git push
+            echo "committed=true"  >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open GitHub Issue
+        if: steps.diff.outputs.has_changes == 'true' && github.event.inputs.skip_issue != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TITLE_FILE=/tmp/issue_title.txt
+          BODY_FILE=/tmp/issue_body.md
+          LABELS_FILE=/tmp/issue_labels.txt
+
+          if [[ ! -s "$TITLE_FILE" || ! -s "$BODY_FILE" ]]; then
+            echo "Missing issue payload files; skipping issue creation."
+            exit 0
+          fi
+
+          TITLE=$(head -n 1 "$TITLE_FILE")
+
+          LABEL_ARGS=()
+          if [[ -s "$LABELS_FILE" ]]; then
+            # Labels file is comma-separated; split, trim, drop empties.
+            IFS=',' read -r -a LABELS <<< "$(tr -d '\n' < "$LABELS_FILE")"
+            for L in "${LABELS[@]}"; do
+              L_TRIM=$(echo "$L" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+              if [[ -n "$L_TRIM" ]]; then
+                LABEL_ARGS+=(--label "$L_TRIM")
+              fi
+            done
+          fi
+
+          gh issue create \
+            --title "$TITLE" \
+            --body-file "$BODY_FILE" \
+            "${LABEL_ARGS[@]}" \
+            --repo "$GITHUB_REPOSITORY"
+
+      - name: Write step summary
+        if: always()
+        run: |
+          {
+            echo "## MiMo Leaderboard Track — ${TODAY}"
+            echo ""
+            echo "- has_changes: \`${{ steps.diff.outputs.has_changes }}\`"
+            echo "- severity:    \`${{ steps.diff.outputs.severity }}\`"
+            echo "- committed:   \`${{ steps.commit.outputs.committed }}\`"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          BODY_FILE=/tmp/issue_body.md
+          if [[ -s "$BODY_FILE" ]]; then
+            echo "### Diff report" >> "$GITHUB_STEP_SUMMARY"
+            # Truncate to ~900KB to stay safely under the 1MB step-summary cap.
+            head -c 900000 "$BODY_FILE" >> "$GITHUB_STEP_SUMMARY"
+            FULL_SIZE=$(wc -c < "$BODY_FILE")
+            if [[ "$FULL_SIZE" -gt 900000 ]]; then
+              echo "" >> "$GITHUB_STEP_SUMMARY"
+              echo "_…truncated (full size: ${FULL_SIZE} bytes; see committed data/alerts/ file)._" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          fi
