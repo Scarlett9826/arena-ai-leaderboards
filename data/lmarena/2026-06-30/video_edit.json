@@ -3,7 +3,7 @@
     "source": "lmarena",
     "subset": "video_edit",
     "source_url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/video_edit/latest-00000-of-00001.parquet",
-    "fetched_at": "2026-06-30T10:09:49+00:00",
+    "fetched_at": "2026-06-30T11:04:33+00:00",
     "leaderboard_publish_date": "2026-05-12",
     "n_rows": 6,
     "n_models": 6,

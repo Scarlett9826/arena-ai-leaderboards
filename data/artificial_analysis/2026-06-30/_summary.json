@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-06-30T10:10:09+00:00",
+  "fetched_at": "2026-06-30T11:04:37+00:00",
   "n_models": 544,
   "boards": [
     "intelligence_index",
@@ -816,7 +816,7 @@
         "id": "016d330a-2141-4afa-b2fc-62b314423dc1",
         "name": "Mercury 2",
         "creator_slug": "inception",
-        "score": 937.107
+        "score": 971.538
       },
       {
         "rank": 2,
@@ -837,7 +837,7 @@
         "id": "3c5289e5-1c62-434c-bc44-c51c39f640a1",
         "name": "LFM2.5-VL-1.6B",
         "creator_slug": "liquidai",
-        "score": 524.849
+        "score": 517.153
       },
       {
         "rank": 5,
@@ -851,7 +851,7 @@
         "id": "340fb211-4fad-41d3-87d5-ed0d0cd34088",
         "name": "HyperNova 60B 2605",
         "creator_slug": "multiversecomputing",
-        "score": 365.95
+        "score": 365.008
       },
       {
         "rank": 7,
@@ -1045,8 +1045,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 156,
-        "ttft": 456,
+        "output_speed": 157,
+        "ttft": 455,
         "price_blended": 226
       },
       "scores": {
@@ -1121,7 +1121,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 6,
-        "output_speed": 158,
+        "output_speed": 159,
         "ttft": 477,
         "price_blended": 233
       },
@@ -1197,8 +1197,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 166,
-        "ttft": 471,
+        "output_speed": 165,
+        "ttft": 469,
         "price_blended": 357
       },
       "scores": {
@@ -1213,8 +1213,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 90.433,
-        "ttft": 1.787,
+        "output_speed": 90.965,
+        "ttft": 1.761,
         "price_blended": 0.8
       }
     },
@@ -1235,8 +1235,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 246,
-        "ttft": 458,
+        "output_speed": 245,
+        "ttft": 457,
         "price_blended": 418
       },
       "scores": {
@@ -1274,7 +1274,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 164,
-        "ttft": 455,
+        "ttft": 454,
         "price_blended": 241
       },
       "scores": {
@@ -1311,8 +1311,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 247,
-        "ttft": 461,
+        "output_speed": 246,
+        "ttft": 460,
         "price_blended": 330
       },
       "scores": {
@@ -1350,7 +1350,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 233,
-        "ttft": 426,
+        "ttft": 427,
         "price_blended": 407
       },
       "scores": {
@@ -1365,8 +1365,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 57.477,
-        "ttft": 1.352,
+        "output_speed": 57.071,
+        "ttft": 1.348,
         "price_blended": 1.35
       }
     }

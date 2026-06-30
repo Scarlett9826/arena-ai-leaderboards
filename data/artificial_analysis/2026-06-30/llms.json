@@ -2,7 +2,7 @@
   "meta": {
     "source": "artificial_analysis",
     "source_url": "https://artificialanalysis.ai/api/v2/data/llms/models",
-    "fetched_at": "2026-06-30T10:10:09+00:00",
+    "fetched_at": "2026-06-30T11:04:37+00:00",
     "snapshot_date": "2026-06-30",
     "n_models": 544,
     "boards": [
@@ -55,9 +55,9 @@
         "price_1m_output_tokens": 0.6
       },
       "speed": {
-        "output_tokens_per_second": 306.249,
+        "output_tokens_per_second": 305.857,
         "ttft_seconds": 0.525,
-        "ttfat_seconds": 7.055
+        "ttfat_seconds": 7.064
       },
       "ranks": {
         "intelligence_index": 156,
@@ -162,8 +162,8 @@
       },
       "speed": {
         "output_tokens_per_second": 352.948,
-        "ttft_seconds": 0.588,
-        "ttfat_seconds": 6.254
+        "ttft_seconds": 0.589,
+        "ttfat_seconds": 6.256
       },
       "ranks": {
         "intelligence_index": 223,
@@ -214,9 +214,9 @@
         "price_1m_output_tokens": 30
       },
       "speed": {
-        "output_tokens_per_second": 75.421,
-        "ttft_seconds": 14.323,
-        "ttfat_seconds": 14.323
+        "output_tokens_per_second": 73.961,
+        "ttft_seconds": 15.36,
+        "ttfat_seconds": 15.36
       },
       "ranks": {
         "intelligence_index": 5,
@@ -231,7 +231,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 192,
-        "ttft": 520,
+        "ttft": 523,
         "price_blended": 525
       }
     },
@@ -283,8 +283,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 201,
-        "ttft": 445,
+        "output_speed": 202,
+        "ttft": 446,
         "price_blended": 526
       }
     },
@@ -320,9 +320,9 @@
         "price_1m_output_tokens": 0.2
       },
       "speed": {
-        "output_tokens_per_second": 257.423,
-        "ttft_seconds": 0.623,
-        "ttfat_seconds": 8.393
+        "output_tokens_per_second": 257.388,
+        "ttft_seconds": 0.628,
+        "ttfat_seconds": 8.399
       },
       "ranks": {
         "intelligence_index": 259,
@@ -337,7 +337,7 @@
         "aime": null,
         "aime_25": 113,
         "output_speed": 19,
-        "ttft": 307,
+        "ttft": 308,
         "price_blended": 202
       }
     },
@@ -442,8 +442,8 @@
         "math_500": 2,
         "aime": 8,
         "aime_25": 35,
-        "output_speed": 95,
-        "ttft": 494,
+        "output_speed": 94,
+        "ttft": 493,
         "price_blended": 479
       }
     },
@@ -654,7 +654,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 88,
+        "output_speed": 85,
         "ttft": 274,
         "price_blended": 313
       }
@@ -797,9 +797,9 @@
         "price_1m_output_tokens": 1.25
       },
       "speed": {
-        "output_tokens_per_second": 150.477,
-        "ttft_seconds": 3.016,
-        "ttfat_seconds": 3.016
+        "output_tokens_per_second": 148.318,
+        "ttft_seconds": 3.083,
+        "ttfat_seconds": 3.083
       },
       "ranks": {
         "intelligence_index": 104,
@@ -813,7 +813,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 86,
+        "output_speed": 89,
         "ttft": 486,
         "price_blended": 314
       }
@@ -850,7 +850,7 @@
         "price_1m_output_tokens": 30
       },
       "speed": {
-        "output_tokens_per_second": 67.146,
+        "output_tokens_per_second": 72.339,
         "ttft_seconds": 0.857,
         "ttfat_seconds": 0.857
       },
@@ -866,7 +866,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 205,
+        "output_speed": 199,
         "ttft": 352,
         "price_blended": 528
       }
@@ -972,7 +972,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 168,
+        "output_speed": 167,
         "ttft": 538,
         "price_blended": 493
       }
@@ -1025,7 +1025,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 58,
+        "output_speed": 57,
         "ttft": 491,
         "price_blended": 428
       }
@@ -1115,9 +1115,9 @@
         "price_1m_output_tokens": 0.71
       },
       "speed": {
-        "output_tokens_per_second": 98.693,
-        "ttft_seconds": 0.646,
-        "ttfat_seconds": 0.646
+        "output_tokens_per_second": 98.686,
+        "ttft_seconds": 0.645,
+        "ttfat_seconds": 0.645
       },
       "ranks": {
         "intelligence_index": 363,
@@ -1290,7 +1290,7 @@
         "math_500": 172,
         "aime": 136,
         "aime_25": 261,
-        "output_speed": 135,
+        "output_speed": 134,
         "ttft": 267,
         "price_blended": 263
       }
@@ -1327,7 +1327,7 @@
         "price_1m_output_tokens": 0.85
       },
       "speed": {
-        "output_tokens_per_second": 110.154,
+        "output_tokens_per_second": 109.255,
         "ttft_seconds": 0.632,
         "ttfat_seconds": 0.632
       },
@@ -1343,7 +1343,7 @@
         "math_500": 78,
         "aime": 72,
         "aime_25": 211,
-        "output_speed": 134,
+        "output_speed": 135,
         "ttft": 310,
         "price_blended": 315
       }
@@ -1502,8 +1502,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 33,
-        "ttft": 517,
+        "output_speed": 34,
+        "ttft": 516,
         "price_blended": 462
       }
     },
@@ -1539,9 +1539,9 @@
         "price_1m_output_tokens": 0
       },
       "speed": {
-        "output_tokens_per_second": 34.957,
-        "ttft_seconds": 0.881,
-        "ttfat_seconds": 50.541
+        "output_tokens_per_second": 35.171,
+        "ttft_seconds": 0.884,
+        "ttfat_seconds": 50.242
       },
       "ranks": {
         "intelligence_index": 109,
@@ -1698,9 +1698,9 @@
         "price_1m_output_tokens": 0.4
       },
       "speed": {
-        "output_tokens_per_second": 76.75,
-        "ttft_seconds": 0.61,
-        "ttfat_seconds": 0.61
+        "output_tokens_per_second": 76.88,
+        "ttft_seconds": 0.609,
+        "ttfat_seconds": 0.609
       },
       "ranks": {
         "intelligence_index": 148,
@@ -1714,7 +1714,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 190,
+        "output_speed": 189,
         "ttft": 305,
         "price_blended": 259
       }
@@ -1768,7 +1768,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 76,
-        "ttft": 447,
+        "ttft": 448,
         "price_blended": 222
       }
     },
@@ -1910,9 +1910,9 @@
         "price_1m_output_tokens": 0.3
       },
       "speed": {
-        "output_tokens_per_second": 155.174,
-        "ttft_seconds": 1.398,
-        "ttfat_seconds": 14.287
+        "output_tokens_per_second": 154.443,
+        "ttft_seconds": 1.403,
+        "ttfat_seconds": 14.353
       },
       "ranks": {
         "intelligence_index": 173,
@@ -1927,7 +1927,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 81,
-        "ttft": 435,
+        "ttft": 436,
         "price_blended": 223
       }
     },
@@ -2192,7 +2192,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 40,
-        "ttft": 354,
+        "ttft": 353,
         "price_blended": 463
       }
     },
@@ -2228,9 +2228,9 @@
         "price_1m_output_tokens": 10
       },
       "speed": {
-        "output_tokens_per_second": 136.615,
-        "ttft_seconds": 16.051,
-        "ttfat_seconds": 16.051
+        "output_tokens_per_second": 138.393,
+        "ttft_seconds": 16.7,
+        "ttfat_seconds": 16.7
       },
       "ranks": {
         "intelligence_index": 135,
@@ -2244,8 +2244,8 @@
         "math_500": 29,
         "aime": 10,
         "aime_25": 40,
-        "output_speed": 104,
-        "ttft": 524,
+        "output_speed": 101,
+        "ttft": 527,
         "price_blended": 465
       }
     },
@@ -2334,9 +2334,9 @@
         "price_1m_output_tokens": 1.5
       },
       "speed": {
-        "output_tokens_per_second": 298.787,
-        "ttft_seconds": 4.52,
-        "ttfat_seconds": 4.52
+        "output_tokens_per_second": 301.002,
+        "ttft_seconds": 4.541,
+        "ttfat_seconds": 4.541
       },
       "ranks": {
         "intelligence_index": 145,
@@ -2351,7 +2351,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 13,
-        "ttft": 493,
+        "ttft": 494,
         "price_blended": 333
       }
     },
@@ -2562,7 +2562,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 254,
+        "output_speed": 253,
         "ttft": 536,
         "price_blended": 502
       }
@@ -2669,7 +2669,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 269,
-        "ttft": 371,
+        "ttft": 370,
         "price_blended": 503
       }
     },
@@ -2721,7 +2721,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 52,
-        "output_speed": 141,
+        "output_speed": 142,
         "ttft": 506,
         "price_blended": 437
       }
@@ -2970,9 +2970,9 @@
         "price_1m_output_tokens": 1.5
       },
       "speed": {
-        "output_tokens_per_second": 56.082,
-        "ttft_seconds": 0.677,
-        "ttfat_seconds": 0.677
+        "output_tokens_per_second": 55.967,
+        "ttft_seconds": 0.683,
+        "ttfat_seconds": 0.683
       },
       "ranks": {
         "intelligence_index": 244,
@@ -3023,9 +3023,9 @@
         "price_1m_output_tokens": 1.5
       },
       "speed": {
-        "output_tokens_per_second": 84.532,
+        "output_tokens_per_second": 84.507,
         "ttft_seconds": 0.484,
-        "ttfat_seconds": 24.143
+        "ttfat_seconds": 24.151
       },
       "ranks": {
         "intelligence_index": 307,
@@ -3129,9 +3129,9 @@
         "price_1m_output_tokens": 5
       },
       "speed": {
-        "output_tokens_per_second": 39.324,
-        "ttft_seconds": 0.577,
-        "ttfat_seconds": 51.437
+        "output_tokens_per_second": 39.372,
+        "ttft_seconds": 0.58,
+        "ttfat_seconds": 51.377
       },
       "ranks": {
         "intelligence_index": 219,
@@ -3251,7 +3251,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 185,
-        "output_speed": 170,
+        "output_speed": 171,
         "ttft": 266,
         "price_blended": 256
       }
@@ -3358,7 +3358,7 @@
         "aime": null,
         "aime_25": 176,
         "output_speed": 280,
-        "ttft": 332,
+        "ttft": 331,
         "price_blended": 13
       }
     },
@@ -3394,9 +3394,9 @@
         "price_1m_output_tokens": 7.5
       },
       "speed": {
-        "output_tokens_per_second": 148.924,
-        "ttft_seconds": 0.613,
-        "ttfat_seconds": 14.042
+        "output_tokens_per_second": 138.571,
+        "ttft_seconds": 0.621,
+        "ttfat_seconds": 15.054
       },
       "ranks": {
         "intelligence_index": 105,
@@ -3410,7 +3410,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 90,
+        "output_speed": 100,
         "ttft": 306,
         "price_blended": 453
       }
@@ -3553,9 +3553,9 @@
         "price_1m_output_tokens": 0.28
       },
       "speed": {
-        "output_tokens_per_second": 105.645,
-        "ttft_seconds": 1.025,
-        "ttfat_seconds": 54.156
+        "output_tokens_per_second": 105.999,
+        "ttft_seconds": 1.03,
+        "ttfat_seconds": 53.983
       },
       "ranks": {
         "intelligence_index": 28,
@@ -3569,7 +3569,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 142,
+        "output_speed": 141,
         "ttft": 375,
         "price_blended": 236
       }
@@ -3712,9 +3712,9 @@
         "price_1m_output_tokens": 0.87
       },
       "speed": {
-        "output_tokens_per_second": 74.268,
-        "ttft_seconds": 1.145,
-        "ttfat_seconds": 60.054
+        "output_tokens_per_second": 73.836,
+        "ttft_seconds": 1.131,
+        "ttfat_seconds": 60.385
       },
       "ranks": {
         "intelligence_index": 16,
@@ -3729,7 +3729,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 193,
-        "ttft": 396,
+        "ttft": 393,
         "price_blended": 328
       }
     },
@@ -3818,9 +3818,9 @@
         "price_1m_output_tokens": 0.28
       },
       "speed": {
-        "output_tokens_per_second": 94.264,
-        "ttft_seconds": 0.969,
-        "ttfat_seconds": 0.969
+        "output_tokens_per_second": 96.385,
+        "ttft_seconds": 0.976,
+        "ttfat_seconds": 0.976
       },
       "ranks": {
         "intelligence_index": 118,
@@ -3834,8 +3834,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 159,
-        "ttft": 363,
+        "output_speed": 154,
+        "ttft": 367,
         "price_blended": 238
       }
     },
@@ -4046,7 +4046,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 203,
+        "output_speed": 204,
         "ttft": 252,
         "price_blended": 404
       }
@@ -4099,7 +4099,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 128,
+        "output_speed": 127,
         "ttft": 299,
         "price_blended": 422
       }
@@ -4136,9 +4136,9 @@
         "price_1m_output_tokens": 2.5
       },
       "speed": {
-        "output_tokens_per_second": 134.981,
-        "ttft_seconds": 23.169,
-        "ttfat_seconds": 23.169
+        "output_tokens_per_second": 133.9,
+        "ttft_seconds": 23.81,
+        "ttfat_seconds": 23.81
       },
       "ranks": {
         "intelligence_index": 50,
@@ -4152,7 +4152,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 107,
+        "output_speed": 108,
         "ttft": 532,
         "price_blended": 423
       }
@@ -4205,8 +4205,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 100,
-        "ttft": 518,
+        "output_speed": 99,
+        "ttft": 519,
         "price_blended": 424
       }
     },
@@ -4242,9 +4242,9 @@
         "price_1m_output_tokens": 0.14
       },
       "speed": {
-        "output_tokens_per_second": 269.131,
-        "ttft_seconds": 0.639,
-        "ttfat_seconds": 0.639
+        "output_tokens_per_second": 274.652,
+        "ttft_seconds": 0.647,
+        "ttfat_seconds": 0.647
       },
       "ranks": {
         "intelligence_index": 447,
@@ -4259,7 +4259,7 @@
         "aime": 142,
         "aime_25": 245,
         "output_speed": 18,
-        "ttft": 312,
+        "ttft": 316,
         "price_blended": 191
       }
     },
@@ -4312,7 +4312,7 @@
         "aime": null,
         "aime_25": 178,
         "output_speed": 24,
-        "ttft": 347,
+        "ttft": 346,
         "price_blended": 365
       }
     },
@@ -4348,9 +4348,9 @@
         "price_1m_output_tokens": 2.5
       },
       "speed": {
-        "output_tokens_per_second": 182.526,
-        "ttft_seconds": 14.679,
-        "ttfat_seconds": 25.637
+        "output_tokens_per_second": 180.627,
+        "ttft_seconds": 13.343,
+        "ttfat_seconds": 24.415
       },
       "ranks": {
         "intelligence_index": 205,
@@ -4365,7 +4365,7 @@
         "aime": null,
         "aime_25": 34,
         "output_speed": 56,
-        "ttft": 522,
+        "ttft": 517,
         "price_blended": 366
       }
     },
@@ -4630,7 +4630,7 @@
         "aime": null,
         "aime_25": 12,
         "output_speed": 51,
-        "ttft": 527,
+        "ttft": 526,
         "price_blended": 370
       }
     },
@@ -4682,7 +4682,7 @@
         "math_500": 100,
         "aime": 108,
         "aime_25": 216,
-        "output_speed": 199,
+        "output_speed": 200,
         "ttft": 401,
         "price_blended": 498
       }
@@ -4772,9 +4772,9 @@
         "price_1m_output_tokens": 2.5
       },
       "speed": {
-        "output_tokens_per_second": 191.081,
-        "ttft_seconds": 4.588,
-        "ttfat_seconds": 15.054
+        "output_tokens_per_second": 188.29,
+        "ttft_seconds": 4.597,
+        "ttfat_seconds": 15.218
       },
       "ranks": {
         "intelligence_index": 221,
@@ -4841,7 +4841,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 110,
-        "output_speed": 85,
+        "output_speed": 84,
         "ttft": 490,
         "price_blended": 468
       }
@@ -4948,7 +4948,7 @@
         "aime": 137,
         "aime_25": null,
         "output_speed": 306,
-        "ttft": 425,
+        "ttft": 426,
         "price_blended": 16
       }
     },
@@ -5001,7 +5001,7 @@
         "aime": 167,
         "aime_25": 241,
         "output_speed": 273,
-        "ttft": 415,
+        "ttft": 416,
         "price_blended": 17
       }
     },
@@ -5107,7 +5107,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 17,
-        "ttft": 459,
+        "ttft": 458,
         "price_blended": 18
       }
     },
@@ -5160,7 +5160,7 @@
         "aime": null,
         "aime_25": 234,
         "output_speed": 10,
-        "ttft": 391,
+        "ttft": 390,
         "price_blended": 19
       }
     },
@@ -5302,9 +5302,9 @@
         "price_1m_output_tokens": 0
       },
       "speed": {
-        "output_tokens_per_second": 524.849,
-        "ttft_seconds": 1.165,
-        "ttfat_seconds": 1.165
+        "output_tokens_per_second": 517.153,
+        "ttft_seconds": 1.16,
+        "ttfat_seconds": 1.16
       },
       "ranks": {
         "intelligence_index": 528,
@@ -5319,7 +5319,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 4,
-        "ttft": 403,
+        "ttft": 402,
         "price_blended": 22
       }
     },
@@ -5372,7 +5372,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 3,
-        "ttft": 410,
+        "ttft": 409,
         "price_blended": 23
       }
     },
@@ -5637,7 +5637,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 279,
-        "ttft": 432,
+        "ttft": 433,
         "price_blended": 320
       }
     },
@@ -5795,7 +5795,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 89,
+        "output_speed": 87,
         "ttft": 377,
         "price_blended": 305
       }
@@ -5833,8 +5833,8 @@
       },
       "speed": {
         "output_tokens_per_second": 168.72,
-        "ttft_seconds": 0.85,
-        "ttfat_seconds": 14.334
+        "ttft_seconds": 0.856,
+        "ttfat_seconds": 14.34
       },
       "ranks": {
         "intelligence_index": 47,
@@ -5849,7 +5849,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 64,
-        "ttft": 350,
+        "ttft": 351,
         "price_blended": 397
       }
     },
@@ -5902,7 +5902,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 15,
-        "ttft": 295,
+        "ttft": 294,
         "price_blended": 214
       }
     },
@@ -5955,7 +5955,7 @@
         "aime": null,
         "aime_25": 114,
         "output_speed": 129,
-        "ttft": 442,
+        "ttft": 444,
         "price_blended": 198
       }
     },
@@ -6203,9 +6203,9 @@
         "price_1m_output_tokens": 0.22
       },
       "speed": {
-        "output_tokens_per_second": 86.665,
-        "ttft_seconds": 1.575,
-        "ttfat_seconds": 24.653
+        "output_tokens_per_second": 87.582,
+        "ttft_seconds": 1.728,
+        "ttfat_seconds": 24.564
       },
       "ranks": {
         "intelligence_index": 263,
@@ -6219,8 +6219,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 21,
-        "output_speed": 171,
-        "ttft": 452,
+        "output_speed": 169,
+        "ttft": 467,
         "price_blended": 203
       }
     },
@@ -6484,7 +6484,7 @@
         "math_500": 41,
         "aime": 32,
         "aime_25": 108,
-        "output_speed": 253,
+        "output_speed": 252,
         "ttft": 328,
         "price_blended": 379
       }
@@ -6591,7 +6591,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 236,
-        "ttft": 395,
+        "ttft": 397,
         "price_blended": 429
       }
     },
@@ -6627,9 +6627,9 @@
         "price_1m_output_tokens": 4
       },
       "speed": {
-        "output_tokens_per_second": 49.836,
-        "ttft_seconds": 1.094,
-        "ttfat_seconds": 1.094
+        "output_tokens_per_second": 49.219,
+        "ttft_seconds": 1.099,
+        "ttfat_seconds": 1.099
       },
       "ranks": {
         "intelligence_index": 69,
@@ -6644,7 +6644,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 266,
-        "ttft": 385,
+        "ttft": 387,
         "price_blended": 430
       }
     },
@@ -6697,7 +6697,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 230,
-        "ttft": 390,
+        "ttft": 388,
         "price_blended": 431
       }
     },
@@ -7651,7 +7651,7 @@
         "aime": null,
         "aime_25": 224,
         "output_speed": 8,
-        "ttft": 504,
+        "ttft": 505,
         "price_blended": 209
       }
     },
@@ -7687,9 +7687,9 @@
         "price_1m_output_tokens": 0.1
       },
       "speed": {
-        "output_tokens_per_second": 132.573,
-        "ttft_seconds": 0.474,
-        "ttfat_seconds": 0.474
+        "output_tokens_per_second": 131.735,
+        "ttft_seconds": 0.473,
+        "ttfat_seconds": 0.473
       },
       "ranks": {
         "intelligence_index": 414,
@@ -7793,9 +7793,9 @@
         "price_1m_output_tokens": 0.75
       },
       "speed": {
-        "output_tokens_per_second": 937.107,
-        "ttft_seconds": 2.656,
-        "ttfat_seconds": 2.656
+        "output_tokens_per_second": 971.538,
+        "ttft_seconds": 2.702,
+        "ttfat_seconds": 2.702
       },
       "ranks": {
         "intelligence_index": 143,
@@ -7862,7 +7862,7 @@
         "math_500": 76,
         "aime": 55,
         "aime_25": 179,
-        "output_speed": 157,
+        "output_speed": 158,
         "ttft": 501,
         "price_blended": 291
       }
@@ -7916,7 +7916,7 @@
         "aime": null,
         "aime_25": 217,
         "output_speed": 286,
-        "ttft": 341,
+        "ttft": 340,
         "price_blended": 414
       }
     },
@@ -7969,7 +7969,7 @@
         "aime": null,
         "aime_25": 229,
         "output_speed": 175,
-        "ttft": 308,
+        "ttft": 307,
         "price_blended": 254
       }
     },
@@ -8074,8 +8074,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 98,
-        "output_speed": 169,
-        "ttft": 313,
+        "output_speed": 170,
+        "ttft": 312,
         "price_blended": 255
       }
     },
@@ -8657,8 +8657,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 247,
-        "ttft": 461,
+        "output_speed": 246,
+        "ttft": 460,
         "price_blended": 330
       }
     },
@@ -8711,7 +8711,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 164,
-        "ttft": 455,
+        "ttft": 454,
         "price_blended": 241
       }
     },
@@ -8747,9 +8747,9 @@
         "price_1m_output_tokens": 2.7
       },
       "speed": {
-        "output_tokens_per_second": 57.477,
-        "ttft_seconds": 1.352,
-        "ttfat_seconds": 1.352
+        "output_tokens_per_second": 57.071,
+        "ttft_seconds": 1.348,
+        "ttfat_seconds": 1.348
       },
       "ranks": {
         "intelligence_index": 123,
@@ -8764,7 +8764,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 233,
-        "ttft": 426,
+        "ttft": 427,
         "price_blended": 407
       }
     },
@@ -8816,8 +8816,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 156,
-        "ttft": 456,
+        "output_speed": 157,
+        "ttft": 455,
         "price_blended": 226
       }
     },
@@ -8853,9 +8853,9 @@
         "price_1m_output_tokens": 2
       },
       "speed": {
-        "output_tokens_per_second": 90.433,
-        "ttft_seconds": 1.787,
-        "ttfat_seconds": 23.903
+        "output_tokens_per_second": 90.965,
+        "ttft_seconds": 1.761,
+        "ttfat_seconds": 23.747
       },
       "ranks": {
         "intelligence_index": 55,
@@ -8869,8 +8869,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 166,
-        "ttft": 471,
+        "output_speed": 165,
+        "ttft": 469,
         "price_blended": 357
       }
     },
@@ -9135,7 +9135,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 22,
-        "ttft": 394,
+        "ttft": 395,
         "price_blended": 185
       }
     },
@@ -9224,9 +9224,9 @@
         "price_1m_output_tokens": 0.14
       },
       "speed": {
-        "output_tokens_per_second": 365.95,
-        "ttft_seconds": 0.556,
-        "ttfat_seconds": 6.021
+        "output_tokens_per_second": 365.008,
+        "ttft_seconds": 0.558,
+        "ttfat_seconds": 6.037
       },
       "ranks": {
         "intelligence_index": 172,
@@ -9293,7 +9293,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 89,
-        "output_speed": 154,
+        "output_speed": 155,
         "ttft": 263,
         "price_blended": 405
       }
@@ -9346,8 +9346,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 92,
-        "ttft": 467,
+        "output_speed": 91,
+        "ttft": 466,
         "price_blended": 257
       }
     },
@@ -9400,7 +9400,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 67,
-        "ttft": 470,
+        "ttft": 471,
         "price_blended": 258
       }
     },
@@ -9453,7 +9453,7 @@
         "aime": null,
         "aime_25": 10,
         "output_speed": 136,
-        "ttft": 402,
+        "ttft": 403,
         "price_blended": 322
       }
     },
@@ -9506,7 +9506,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 137,
-        "ttft": 388,
+        "ttft": 386,
         "price_blended": 323
       }
     },
@@ -10496,9 +10496,9 @@
         "price_1m_output_tokens": 0.875
       },
       "speed": {
-        "output_tokens_per_second": 225.739,
-        "ttft_seconds": 0.727,
-        "ttfat_seconds": 9.587
+        "output_tokens_per_second": 216.369,
+        "ttft_seconds": 0.734,
+        "ttfat_seconds": 9.978
       },
       "ranks": {
         "intelligence_index": 153,
@@ -10512,8 +10512,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 28,
-        "ttft": 331,
+        "output_speed": 32,
+        "ttft": 333,
         "price_blended": 301
       }
     },
@@ -10708,9 +10708,9 @@
         "price_1m_output_tokens": 4.4
       },
       "speed": {
-        "output_tokens_per_second": 150.919,
+        "output_tokens_per_second": 151.206,
         "ttft_seconds": 0.805,
-        "ttfat_seconds": 14.057
+        "ttfat_seconds": 14.032
       },
       "ranks": {
         "intelligence_index": 7,
@@ -10814,9 +10814,9 @@
         "price_1m_output_tokens": 4.4
       },
       "speed": {
-        "output_tokens_per_second": 71.295,
-        "ttft_seconds": 0.874,
-        "ttfat_seconds": 54.047
+        "output_tokens_per_second": 70.966,
+        "ttft_seconds": 0.881,
+        "ttfat_seconds": 54.301
       },
       "ranks": {
         "intelligence_index": 30,
@@ -10830,8 +10830,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 200,
-        "ttft": 353,
+        "output_speed": 201,
+        "ttft": 354,
         "price_blended": 442
       }
     },
@@ -11079,9 +11079,9 @@
         "price_1m_output_tokens": 0
       },
       "speed": {
-        "output_tokens_per_second": 134.085,
-        "ttft_seconds": 0.307,
-        "ttfat_seconds": 0.307
+        "output_tokens_per_second": 134.045,
+        "ttft_seconds": 0.302,
+        "ttfat_seconds": 0.302
       },
       "ranks": {
         "intelligence_index": 532,
@@ -11095,7 +11095,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 108,
+        "output_speed": 107,
         "ttft": 246,
         "price_blended": 79
       }
@@ -11291,9 +11291,9 @@
         "price_1m_output_tokens": 8
       },
       "speed": {
-        "output_tokens_per_second": 62.152,
-        "ttft_seconds": 0.822,
-        "ttfat_seconds": 0.822
+        "output_tokens_per_second": 61.914,
+        "ttft_seconds": 0.829,
+        "ttfat_seconds": 0.829
       },
       "ranks": {
         "intelligence_index": 434,
@@ -11308,7 +11308,7 @@
         "aime": 152,
         "aime_25": 259,
         "output_speed": 221,
-        "ttft": 345,
+        "ttft": 347,
         "price_blended": 480
       }
     },
@@ -11413,8 +11413,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 255,
-        "ttft": 466,
+        "output_speed": 254,
+        "ttft": 465,
         "price_blended": 408
       }
     },
@@ -11467,7 +11467,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 46,
-        "ttft": 454,
+        "ttft": 453,
         "price_blended": 485
       }
     },
@@ -11503,9 +11503,9 @@
         "price_1m_output_tokens": 3.2
       },
       "speed": {
-        "output_tokens_per_second": 139.38,
-        "ttft_seconds": 1.15,
-        "ttfat_seconds": 15.499
+        "output_tokens_per_second": 139.339,
+        "ttft_seconds": 1.141,
+        "ttfat_seconds": 15.495
       },
       "ranks": {
         "intelligence_index": 89,
@@ -11519,8 +11519,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 99,
-        "ttft": 397,
+        "output_speed": 98,
+        "ttft": 396,
         "price_blended": 392
       }
     },
@@ -11572,8 +11572,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 91,
-        "ttft": 433,
+        "output_speed": 88,
+        "ttft": 434,
         "price_blended": 331
       }
     },
@@ -11679,7 +11679,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 75,
-        "ttft": 427,
+        "ttft": 428,
         "price_blended": 364
       }
     },
@@ -11715,9 +11715,9 @@
         "price_1m_output_tokens": 3.6
       },
       "speed": {
-        "output_tokens_per_second": 52.652,
-        "ttft_seconds": 1.665,
-        "ttfat_seconds": 1.665
+        "output_tokens_per_second": 52.597,
+        "ttft_seconds": 1.664,
+        "ttfat_seconds": 1.664
       },
       "ranks": {
         "intelligence_index": 90,
@@ -11731,8 +11731,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 249,
-        "ttft": 460,
+        "output_speed": 248,
+        "ttft": 459,
         "price_blended": 409
       }
     },
@@ -11784,7 +11784,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 51,
-        "output_speed": 61,
+        "output_speed": 60,
         "ttft": 380,
         "price_blended": 432
       }
@@ -11821,9 +11821,9 @@
         "price_1m_output_tokens": 1.16
       },
       "speed": {
-        "output_tokens_per_second": 49.887,
-        "ttft_seconds": 1.674,
-        "ttfat_seconds": 41.765
+        "output_tokens_per_second": 49.353,
+        "ttft_seconds": 1.685,
+        "ttfat_seconds": 42.209
       },
       "ranks": {
         "intelligence_index": 40,
@@ -11943,8 +11943,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 219,
-        "ttft": 393,
+        "output_speed": 218,
+        "ttft": 394,
         "price_blended": 210
       }
     },
@@ -12103,7 +12103,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 227,
-        "ttft": 446,
+        "ttft": 447,
         "price_blended": 410
       }
     },
@@ -12156,7 +12156,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 232,
-        "ttft": 451,
+        "ttft": 450,
         "price_blended": 411
       }
     },
@@ -12298,9 +12298,9 @@
         "price_1m_output_tokens": 1.2
       },
       "speed": {
-        "output_tokens_per_second": 132.616,
-        "ttft_seconds": 0.966,
-        "ttfat_seconds": 0.966
+        "output_tokens_per_second": 127.563,
+        "ttft_seconds": 0.956,
+        "ttfat_seconds": 0.956
       },
       "ranks": {
         "intelligence_index": 181,
@@ -12314,7 +12314,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 112,
+        "output_speed": 114,
         "ttft": 362,
         "price_blended": 334
       }
@@ -12368,7 +12368,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 70,
-        "ttft": 392,
+        "ttft": 391,
         "price_blended": 393
       }
     },
@@ -12421,7 +12421,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 302,
-        "ttft": 351,
+        "ttft": 350,
         "price_blended": 184
       }
     },
@@ -12527,7 +12527,7 @@
         "aime": null,
         "aime_25": 136,
         "output_speed": 138,
-        "ttft": 365,
+        "ttft": 364,
         "price_blended": 307
       }
     },
@@ -12580,7 +12580,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 301,
-        "ttft": 260,
+        "ttft": 261,
         "price_blended": 181
       }
     },
@@ -12686,7 +12686,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 239,
-        "ttft": 422,
+        "ttft": 423,
         "price_blended": 416
       }
     },
@@ -12738,8 +12738,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 248,
-        "ttft": 464,
+        "output_speed": 247,
+        "ttft": 462,
         "price_blended": 394
       }
     },
@@ -13057,7 +13057,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 50,
-        "ttft": 364,
+        "ttft": 363,
         "price_blended": 228
       }
     },
@@ -13162,8 +13162,8 @@
         "math_500": 27,
         "aime": 35,
         "aime_25": null,
-        "output_speed": 114,
-        "ttft": 523,
+        "output_speed": 112,
+        "ttft": 522,
         "price_blended": 534
       }
     },
@@ -13305,7 +13305,7 @@
         "price_1m_output_tokens": 10
       },
       "speed": {
-        "output_tokens_per_second": 117.398,
+        "output_tokens_per_second": 118.21,
         "ttft_seconds": 0.58,
         "ttfat_seconds": 0.58
       },
@@ -13464,9 +13464,9 @@
         "price_1m_output_tokens": 10
       },
       "speed": {
-        "output_tokens_per_second": 213.715,
-        "ttft_seconds": 0.508,
-        "ttfat_seconds": 0.508
+        "output_tokens_per_second": 217.433,
+        "ttft_seconds": 0.506,
+        "ttfat_seconds": 0.506
       },
       "ranks": {
         "intelligence_index": 308,
@@ -13480,8 +13480,8 @@
         "math_500": 125,
         "aime": 112,
         "aime_25": 247,
-        "output_speed": 34,
-        "ttft": 270,
+        "output_speed": 31,
+        "ttft": 269,
         "price_blended": 489
       }
     },
@@ -13534,7 +13534,7 @@
         "aime": 123,
         "aime_25": 219,
         "output_speed": 184,
-        "ttft": 302,
+        "ttft": 301,
         "price_blended": 273
       }
     },
@@ -13570,9 +13570,9 @@
         "price_1m_output_tokens": 1.5
       },
       "speed": {
-        "output_tokens_per_second": 150.343,
-        "ttft_seconds": 1.24,
-        "ttfat_seconds": 1.24
+        "output_tokens_per_second": 150.114,
+        "ttft_seconds": 1.181,
+        "ttfat_seconds": 1.181
       },
       "ranks": {
         "intelligence_index": 473,
@@ -13586,8 +13586,8 @@
         "math_500": 180,
         "aime": null,
         "aime_25": null,
-        "output_speed": 87,
-        "ttft": 417,
+        "output_speed": 86,
+        "ttft": 405,
         "price_blended": 352
       }
     },
@@ -13676,9 +13676,9 @@
         "price_1m_output_tokens": 15.75
       },
       "speed": {
-        "output_tokens_per_second": 103.657,
-        "ttft_seconds": 1.089,
-        "ttfat_seconds": 1.089
+        "output_tokens_per_second": 103.591,
+        "ttft_seconds": 1.128,
+        "ttfat_seconds": 1.128
       },
       "ranks": {
         "intelligence_index": 39,
@@ -13693,7 +13693,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 146,
-        "ttft": 384,
+        "ttft": 392,
         "price_blended": 501
       }
     },
@@ -13729,9 +13729,9 @@
         "price_1m_output_tokens": 15
       },
       "speed": {
-        "output_tokens_per_second": 182.124,
-        "ttft_seconds": 92.935,
-        "ttfat_seconds": 92.935
+        "output_tokens_per_second": 174.099,
+        "ttft_seconds": 99.303,
+        "ttfat_seconds": 99.303
       },
       "ranks": {
         "intelligence_index": 6,
@@ -13745,7 +13745,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 57,
+        "output_speed": 61,
         "ttft": 544,
         "price_blended": 499
       }
@@ -13782,9 +13782,9 @@
         "price_1m_output_tokens": 14
       },
       "speed": {
-        "output_tokens_per_second": 133.545,
-        "ttft_seconds": 1.475,
-        "ttfat_seconds": 1.475
+        "output_tokens_per_second": 132.847,
+        "ttft_seconds": 1.292,
+        "ttfat_seconds": 1.292
       },
       "ranks": {
         "intelligence_index": 32,
@@ -13798,8 +13798,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 109,
-        "ttft": 443,
+        "output_speed": 110,
+        "ttft": 422,
         "price_blended": 494
       }
     },
@@ -13888,9 +13888,9 @@
         "price_1m_output_tokens": 0.4
       },
       "speed": {
-        "output_tokens_per_second": 137.041,
-        "ttft_seconds": 0.736,
-        "ttfat_seconds": 0.736
+        "output_tokens_per_second": 138.08,
+        "ttft_seconds": 0.732,
+        "ttfat_seconds": 0.732
       },
       "ranks": {
         "intelligence_index": 381,
@@ -13905,7 +13905,7 @@
         "aime": null,
         "aime_25": 190,
         "output_speed": 102,
-        "ttft": 333,
+        "ttft": 332,
         "price_blended": 216
       }
     },
@@ -13941,9 +13941,9 @@
         "price_1m_output_tokens": 4.4
       },
       "speed": {
-        "output_tokens_per_second": 240.346,
-        "ttft_seconds": 14.283,
-        "ttfat_seconds": 14.283
+        "output_tokens_per_second": 240.743,
+        "ttft_seconds": 14.322,
+        "ttfat_seconds": 14.322
       },
       "ranks": {
         "intelligence_index": 213,
@@ -13958,7 +13958,7 @@
         "aime": 14,
         "aime_25": null,
         "output_speed": 21,
-        "ttft": 519,
+        "ttft": 520,
         "price_blended": 434
       }
     },
@@ -13994,9 +13994,9 @@
         "price_1m_output_tokens": 2
       },
       "speed": {
-        "output_tokens_per_second": 93.489,
-        "ttft_seconds": 75.03,
-        "ttfat_seconds": 75.03
+        "output_tokens_per_second": 93.288,
+        "ttft_seconds": 75.132,
+        "ttfat_seconds": 75.132
       },
       "ranks": {
         "intelligence_index": 85,
@@ -14063,7 +14063,7 @@
         "math_500": 24,
         "aime": 27,
         "aime_25": null,
-        "output_speed": 31,
+        "output_speed": 30,
         "ttft": 496,
         "price_blended": 435
       }
@@ -14116,8 +14116,8 @@
         "math_500": 67,
         "aime": 67,
         "aime_25": 175,
-        "output_speed": 110,
-        "ttft": 304,
+        "output_speed": 109,
+        "ttft": 303,
         "price_blended": 481
       }
     },
@@ -14222,7 +14222,7 @@
         "math_500": 1,
         "aime": 1,
         "aime_25": 13,
-        "output_speed": 167,
+        "output_speed": 166,
         "ttft": 541,
         "price_blended": 470
       }
@@ -14328,7 +14328,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 14,
-        "output_speed": 155,
+        "output_speed": 156,
         "ttft": 534,
         "price_blended": 471
       }
@@ -14540,7 +14540,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 2,
-        "output_speed": 97,
+        "output_speed": 96,
         "ttft": 499,
         "price_blended": 472
       }
@@ -14577,9 +14577,9 @@
         "price_1m_output_tokens": 10
       },
       "speed": {
-        "output_tokens_per_second": 78.154,
-        "ttft_seconds": 41.608,
-        "ttfat_seconds": 41.608
+        "output_tokens_per_second": 76.531,
+        "ttft_seconds": 41.551,
+        "ttfat_seconds": 41.551
       },
       "ranks": {
         "intelligence_index": 76,
@@ -14593,7 +14593,7 @@
         "math_500": 4,
         "aime": 6,
         "aime_25": 18,
-        "output_speed": 188,
+        "output_speed": 190,
         "ttft": 537,
         "price_blended": 473
       }
@@ -14630,9 +14630,9 @@
         "price_1m_output_tokens": 60
       },
       "speed": {
-        "output_tokens_per_second": 44.517,
-        "ttft_seconds": 1.268,
-        "ttfat_seconds": 1.268
+        "output_tokens_per_second": 44.202,
+        "ttft_seconds": 1.264,
+        "ttfat_seconds": 1.264
       },
       "ranks": {
         "intelligence_index": 401,
@@ -14699,7 +14699,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 138,
-        "output_speed": 218,
+        "output_speed": 217,
         "ttft": 323,
         "price_blended": 496
       }
@@ -14806,7 +14806,7 @@
         "aime": 20,
         "aime_25": 55,
         "output_speed": 186,
-        "ttft": 513,
+        "ttft": 512,
         "price_blended": 474
       }
     },
@@ -14842,9 +14842,9 @@
         "price_1m_output_tokens": 4.4
       },
       "speed": {
-        "output_tokens_per_second": 160.942,
-        "ttft_seconds": 12.908,
-        "ttfat_seconds": 12.908
+        "output_tokens_per_second": 159.868,
+        "ttft_seconds": 13.395,
+        "ttfat_seconds": 13.395
       },
       "ranks": {
         "intelligence_index": 137,
@@ -14858,8 +14858,8 @@
         "math_500": 7,
         "aime": 3,
         "aime_25": 24,
-        "output_speed": 73,
-        "ttft": 516,
+        "output_speed": 74,
+        "ttft": 518,
         "price_blended": 436
       }
     },
@@ -15335,7 +15335,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 143,
-        "output_speed": 60,
+        "output_speed": 59,
         "ttft": 298,
         "price_blended": 476
       }
@@ -15441,7 +15441,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 72,
-        "output_speed": 98,
+        "output_speed": 97,
         "ttft": 535,
         "price_blended": 217
       }
@@ -15495,7 +15495,7 @@
         "aime": null,
         "aime_25": 47,
         "output_speed": 143,
-        "ttft": 525,
+        "ttft": 524,
         "price_blended": 343
       }
     },
@@ -15531,9 +15531,9 @@
         "price_1m_output_tokens": 80
       },
       "speed": {
-        "output_tokens_per_second": 34.36,
-        "ttft_seconds": 55.405,
-        "ttfat_seconds": 55.405
+        "output_tokens_per_second": 36.129,
+        "ttft_seconds": 55.149,
+        "ttfat_seconds": 55.149
       },
       "ranks": {
         "intelligence_index": 87,
@@ -15547,7 +15547,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 293,
+        "output_speed": 290,
         "ttft": 539,
         "price_blended": 541
       }
@@ -15584,9 +15584,9 @@
         "price_1m_output_tokens": 10
       },
       "speed": {
-        "output_tokens_per_second": 90.712,
-        "ttft_seconds": 0.782,
-        "ttfat_seconds": 0.782
+        "output_tokens_per_second": 89.302,
+        "ttft_seconds": 0.792,
+        "ttfat_seconds": 0.792
       },
       "ranks": {
         "intelligence_index": 190,
@@ -15600,8 +15600,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 165,
-        "output_speed": 165,
-        "ttft": 340,
+        "output_speed": 168,
+        "ttft": 341,
         "price_blended": 477
       }
     },
@@ -15637,9 +15637,9 @@
         "price_1m_output_tokens": 0.4
       },
       "speed": {
-        "output_tokens_per_second": 146.142,
-        "ttft_seconds": 73.565,
-        "ttfat_seconds": 73.565
+        "output_tokens_per_second": 146.519,
+        "ttft_seconds": 74.052,
+        "ttfat_seconds": 74.052
       },
       "ranks": {
         "intelligence_index": 196,
@@ -15653,7 +15653,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 54,
-        "output_speed": 94,
+        "output_speed": 93,
         "ttft": 542,
         "price_blended": 218
       }
@@ -15706,7 +15706,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 19,
-        "output_speed": 32,
+        "output_speed": 33,
         "ttft": 481,
         "price_blended": 344
       }
@@ -15744,8 +15744,8 @@
       },
       "speed": {
         "output_tokens_per_second": 32.609,
-        "ttft_seconds": 0.566,
-        "ttfat_seconds": 0.566
+        "ttft_seconds": 0.574,
+        "ttfat_seconds": 0.574
       },
       "ranks": {
         "intelligence_index": 410,
@@ -15760,7 +15760,7 @@
         "aime": 107,
         "aime_25": 251,
         "output_speed": 295,
-        "ttft": 285,
+        "ttft": 290,
         "price_blended": 332
       }
     },
@@ -15812,8 +15812,8 @@
         "math_500": 171,
         "aime": 145,
         "aime_25": 249,
-        "output_speed": 74,
-        "ttft": 269,
+        "output_speed": 73,
+        "ttft": 270,
         "price_blended": 205
       }
     },
@@ -15865,8 +15865,8 @@
         "math_500": 174,
         "aime": 147,
         "aime_25": 253,
-        "output_speed": 252,
-        "ttft": 287,
+        "output_speed": 251,
+        "ttft": 286,
         "price_blended": 229
       }
     },
@@ -15902,9 +15902,9 @@
         "price_1m_output_tokens": 2.75
       },
       "speed": {
-        "output_tokens_per_second": 46.984,
-        "ttft_seconds": 0.651,
-        "ttfat_seconds": 0.651
+        "output_tokens_per_second": 46.982,
+        "ttft_seconds": 0.643,
+        "ttfat_seconds": 0.643
       },
       "ranks": {
         "intelligence_index": 478,
@@ -15919,7 +15919,7 @@
         "aime": 182,
         "aime_25": null,
         "output_speed": 271,
-        "ttft": 316,
+        "ttft": 313,
         "price_blended": 398
       }
     },
@@ -15955,9 +15955,9 @@
         "price_1m_output_tokens": 0.145
       },
       "speed": {
-        "output_tokens_per_second": 81.651,
-        "ttft_seconds": 0.472,
-        "ttfat_seconds": 0.472
+        "output_tokens_per_second": 81.58,
+        "ttft_seconds": 0.466,
+        "ttfat_seconds": 0.466
       },
       "ranks": {
         "intelligence_index": 523,
@@ -15972,7 +15972,7 @@
         "aime": 183,
         "aime_25": null,
         "output_speed": 183,
-        "ttft": 261,
+        "ttft": 259,
         "price_blended": 195
       }
     },
@@ -16025,7 +16025,7 @@
         "aime": 184,
         "aime_25": 268,
         "output_speed": 172,
-        "ttft": 303,
+        "ttft": 302,
         "price_blended": 186
       }
     },
@@ -17032,7 +17032,7 @@
         "aime": 39,
         "aime_25": 135,
         "output_speed": 11,
-        "ttft": 526,
+        "ttft": 525,
         "price_blended": 243
       }
     },
@@ -17614,7 +17614,7 @@
         "math_500": 61,
         "aime": 58,
         "aime_25": 174,
-        "output_speed": 29,
+        "output_speed": 28,
         "ttft": 247,
         "price_blended": 244
       }
@@ -17667,7 +17667,7 @@
         "math_500": 15,
         "aime": 21,
         "aime_25": 85,
-        "output_speed": 30,
+        "output_speed": 29,
         "ttft": 510,
         "price_blended": 374
       }
@@ -18674,7 +18674,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 39,
-        "output_speed": 250,
+        "output_speed": 249,
         "ttft": 500,
         "price_blended": 509
       }
@@ -18728,7 +18728,7 @@
         "aime": null,
         "aime_25": 168,
         "output_speed": 270,
-        "ttft": 428,
+        "ttft": 429,
         "price_blended": 510
       }
     },
@@ -18992,8 +18992,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 112,
-        "output_speed": 251,
-        "ttft": 434,
+        "output_speed": 250,
+        "ttft": 435,
         "price_blended": 521
       }
     },
@@ -19099,7 +19099,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 276,
-        "ttft": 462,
+        "ttft": 461,
         "price_blended": 522
       }
     },
@@ -19347,9 +19347,9 @@
         "price_1m_output_tokens": 75
       },
       "speed": {
-        "output_tokens_per_second": 34.98,
-        "ttft_seconds": 8.235,
-        "ttfat_seconds": 8.235
+        "output_tokens_per_second": 34.982,
+        "ttft_seconds": 8.023,
+        "ttfat_seconds": 8.023
       },
       "ranks": {
         "intelligence_index": 77,
@@ -19363,7 +19363,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 66,
-        "output_speed": 290,
+        "output_speed": 292,
         "ttft": 503,
         "price_blended": 540
       }
@@ -19400,9 +19400,9 @@
         "price_1m_output_tokens": 25
       },
       "speed": {
-        "output_tokens_per_second": 54.853,
-        "ttft_seconds": 9.844,
-        "ttfat_seconds": 9.844
+        "output_tokens_per_second": 54.964,
+        "ttft_seconds": 10.121,
+        "ttfat_seconds": 10.121
       },
       "ranks": {
         "intelligence_index": 27,
@@ -19788,7 +19788,7 @@
         "aime": 177,
         "aime_25": null,
         "output_speed": 79,
-        "ttft": 288,
+        "ttft": 287,
         "price_blended": 417
       }
     },
@@ -20142,9 +20142,9 @@
         "price_1m_output_tokens": 0.25
       },
       "speed": {
-        "output_tokens_per_second": 150.715,
-        "ttft_seconds": 0.426,
-        "ttfat_seconds": 0.426
+        "output_tokens_per_second": 148.273,
+        "ttft_seconds": 0.428,
+        "ttfat_seconds": 0.428
       },
       "ranks": {
         "intelligence_index": 347,
@@ -20158,7 +20158,7 @@
         "math_500": 82,
         "aime": 80,
         "aime_25": 192,
-        "output_speed": 84,
+        "output_speed": 90,
         "ttft": 255,
         "price_blended": 213
       }
@@ -20195,9 +20195,9 @@
         "price_1m_output_tokens": 0.3
       },
       "speed": {
-        "output_tokens_per_second": 65.201,
-        "ttft_seconds": 0.574,
-        "ttfat_seconds": 0.574
+        "output_tokens_per_second": 64.312,
+        "ttft_seconds": 0.569,
+        "ttfat_seconds": 0.569
       },
       "ranks": {
         "intelligence_index": 341,
@@ -20211,8 +20211,8 @@
         "math_500": 157,
         "aime": 180,
         "aime_25": 187,
-        "output_speed": 211,
-        "ttft": 290,
+        "output_speed": 213,
+        "ttft": 288,
         "price_blended": 230
       }
     },
@@ -20477,7 +20477,7 @@
         "aime": 149,
         "aime_25": 248,
         "output_speed": 244,
-        "ttft": 294,
+        "ttft": 293,
         "price_blended": 359
       }
     },
@@ -20530,7 +20530,7 @@
         "aime": null,
         "aime_25": 163,
         "output_speed": 163,
-        "ttft": 286,
+        "ttft": 285,
         "price_blended": 360
       }
     },
@@ -22262,9 +22262,9 @@
         "price_1m_output_tokens": 6
       },
       "speed": {
-        "output_tokens_per_second": 235.68,
-        "ttft_seconds": 10.792,
-        "ttfat_seconds": 10.792
+        "output_tokens_per_second": 236.238,
+        "ttft_seconds": 10.853,
+        "ttfat_seconds": 10.853
       },
       "ranks": {
         "intelligence_index": 53,
@@ -22279,7 +22279,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 23,
-        "ttft": 512,
+        "ttft": 513,
         "price_blended": 457
       }
     },
@@ -23180,7 +23180,7 @@
         "aime": null,
         "aime_25": 255,
         "output_speed": 2,
-        "ttft": 431,
+        "ttft": 432,
         "price_blended": 152
       }
     },
@@ -23232,7 +23232,7 @@
         "math_500": 187,
         "aime": null,
         "aime_25": null,
-        "output_speed": 189,
+        "output_speed": 188,
         "ttft": 336,
         "price_blended": 231
       }
@@ -23428,9 +23428,9 @@
         "price_1m_output_tokens": 1.2
       },
       "speed": {
-        "output_tokens_per_second": 209.65,
-        "ttft_seconds": 8.902,
-        "ttfat_seconds": 18.442
+        "output_tokens_per_second": 206.839,
+        "ttft_seconds": 8.527,
+        "ttfat_seconds": 18.197
       },
       "ranks": {
         "intelligence_index": 78,
@@ -23445,7 +23445,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 38,
-        "ttft": 505,
+        "ttft": 504,
         "price_blended": 324
       }
     },
@@ -23534,9 +23534,9 @@
         "price_1m_output_tokens": 1.2
       },
       "speed": {
-        "output_tokens_per_second": 104.823,
-        "ttft_seconds": 1.316,
-        "ttfat_seconds": 20.395
+        "output_tokens_per_second": 103.986,
+        "ttft_seconds": 1.314,
+        "ttfat_seconds": 20.547
       },
       "ranks": {
         "intelligence_index": 120,
@@ -23551,7 +23551,7 @@
         "aime": null,
         "aime_25": 74,
         "output_speed": 145,
-        "ttft": 423,
+        "ttft": 424,
         "price_blended": 326
       }
     },
@@ -23852,9 +23852,9 @@
         "price_1m_output_tokens": 2.4
       },
       "speed": {
-        "output_tokens_per_second": 30.291,
-        "ttft_seconds": 1.476,
-        "ttfat_seconds": 1.476
+        "output_tokens_per_second": 30.295,
+        "ttft_seconds": 1.482,
+        "ttfat_seconds": 1.482
       },
       "ranks": {
         "intelligence_index": 201,
@@ -23869,7 +23869,7 @@
         "aime": 41,
         "aime_25": 124,
         "output_speed": 299,
-        "ttft": 444,
+        "ttft": 445,
         "price_blended": 389
       }
     },
@@ -23921,7 +23921,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 292,
+        "output_speed": 293,
         "ttft": 420,
         "price_blended": 399
       }
@@ -23974,8 +23974,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 11,
-        "output_speed": 101,
-        "ttft": 346,
+        "output_speed": 103,
+        "ttft": 345,
         "price_blended": 390
       }
     },
@@ -24011,9 +24011,9 @@
         "price_1m_output_tokens": 3
       },
       "speed": {
-        "output_tokens_per_second": 33.62,
-        "ttft_seconds": 1.212,
-        "ttfat_seconds": 1.212
+        "output_tokens_per_second": 32.957,
+        "ttft_seconds": 1.218,
+        "ttfat_seconds": 1.218
       },
       "ranks": {
         "intelligence_index": 110,
@@ -24028,7 +24028,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 294,
-        "ttft": 412,
+        "ttft": 413,
         "price_blended": 401
       }
     },
@@ -24081,7 +24081,7 @@
         "aime": null,
         "aime_25": 123,
         "output_speed": 297,
-        "ttft": 436,
+        "ttft": 437,
         "price_blended": 391
       }
     },
@@ -24435,9 +24435,9 @@
         "price_1m_output_tokens": 0.8
       },
       "speed": {
-        "output_tokens_per_second": 86.372,
-        "ttft_seconds": 1.703,
-        "ttfat_seconds": 1.703
+        "output_tokens_per_second": 86.318,
+        "ttft_seconds": 1.705,
+        "ttfat_seconds": 1.705
       },
       "ranks": {
         "intelligence_index": 425,
@@ -24452,7 +24452,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 173,
-        "ttft": 465,
+        "ttft": 464,
         "price_blended": 293
       }
     },
@@ -24557,7 +24557,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": 6,
-        "output_speed": 158,
+        "output_speed": 159,
         "ttft": 477,
         "price_blended": 233
       }
@@ -24610,8 +24610,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 246,
-        "ttft": 458,
+        "output_speed": 245,
+        "ttft": 457,
         "price_blended": 418
       }
     },
@@ -24753,9 +24753,9 @@
         "price_1m_output_tokens": 2.2
       },
       "speed": {
-        "output_tokens_per_second": 119.478,
-        "ttft_seconds": 0.602,
-        "ttfat_seconds": 17.342
+        "output_tokens_per_second": 118.903,
+        "ttft_seconds": 0.604,
+        "ttfat_seconds": 17.425
       },
       "ranks": {
         "intelligence_index": 73,
@@ -24770,7 +24770,7 @@
         "aime": null,
         "aime_25": 9,
         "output_speed": 120,
-        "ttft": 301,
+        "ttft": 304,
         "price_blended": 386
       }
     },
@@ -24822,7 +24822,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 202,
+        "output_speed": 203,
         "ttft": 329,
         "price_blended": 419
       }
@@ -24859,9 +24859,9 @@
         "price_1m_output_tokens": 3.2
       },
       "speed": {
-        "output_tokens_per_second": 53.484,
-        "ttft_seconds": 1.522,
-        "ttfat_seconds": 1.522
+        "output_tokens_per_second": 51.781,
+        "ttft_seconds": 1.566,
+        "ttfat_seconds": 1.566
       },
       "ranks": {
         "intelligence_index": 88,
@@ -24875,8 +24875,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 245,
-        "ttft": 449,
+        "output_speed": 255,
+        "ttft": 451,
         "price_blended": 420
       }
     },
@@ -24912,9 +24912,9 @@
         "price_1m_output_tokens": 2.2
       },
       "speed": {
-        "output_tokens_per_second": 51.338,
-        "ttft_seconds": 1.506,
-        "ttfat_seconds": 40.463
+        "output_tokens_per_second": 51.337,
+        "ttft_seconds": 1.458,
+        "ttfat_seconds": 40.416
       },
       "ranks": {
         "intelligence_index": 144,
@@ -24929,7 +24929,7 @@
         "aime": null,
         "aime_25": 44,
         "output_speed": 257,
-        "ttft": 448,
+        "ttft": 443,
         "price_blended": 383
       }
     },
@@ -24965,9 +24965,9 @@
         "price_1m_output_tokens": 2.2
       },
       "speed": {
-        "output_tokens_per_second": 120.842,
-        "ttft_seconds": 0.581,
-        "ttfat_seconds": 0.581
+        "output_tokens_per_second": 120.684,
+        "ttft_seconds": 0.583,
+        "ttfat_seconds": 0.583
       },
       "ranks": {
         "intelligence_index": 128,
@@ -24982,7 +24982,7 @@
         "aime": null,
         "aime_25": 144,
         "output_speed": 119,
-        "ttft": 293,
+        "ttft": 295,
         "price_blended": 387
       }
     },
@@ -25141,7 +25141,7 @@
         "aime": null,
         "aime_25": 87,
         "output_speed": 268,
-        "ttft": 424,
+        "ttft": 425,
         "price_blended": 381
       }
     },
@@ -25194,7 +25194,7 @@
         "aime": null,
         "aime_25": 149,
         "output_speed": 274,
-        "ttft": 469,
+        "ttft": 468,
         "price_blended": 388
       }
     },
@@ -25247,7 +25247,7 @@
         "aime": null,
         "aime_25": 45,
         "output_speed": 278,
-        "ttft": 414,
+        "ttft": 415,
         "price_blended": 309
       }
     },
@@ -25300,7 +25300,7 @@
         "aime": 45,
         "aime_25": 62,
         "output_speed": 178,
-        "ttft": 440,
+        "ttft": 441,
         "price_blended": 298
       }
     },
@@ -25352,7 +25352,7 @@
         "math_500": null,
         "aime": null,
         "aime_25": null,
-        "output_speed": 103,
+        "output_speed": 104,
         "ttft": 360,
         "price_blended": 235
       }
@@ -25406,7 +25406,7 @@
         "aime": null,
         "aime_25": 194,
         "output_speed": 263,
-        "ttft": 430,
+        "ttft": 431,
         "price_blended": 310
       }
     },
@@ -25707,9 +25707,9 @@
         "price_1m_output_tokens": 8
       },
       "speed": {
-        "output_tokens_per_second": 61.937,
-        "ttft_seconds": 0.915,
-        "ttfat_seconds": 0.915
+        "output_tokens_per_second": 61.643,
+        "ttft_seconds": 0.92,
+        "ttfat_seconds": 0.92
       },
       "ranks": {
         "intelligence_index": 443,
@@ -26041,8 +26041,8 @@
         "math_500": 107,
         "aime": 121,
         "aime_25": null,
-        "output_speed": 127,
-        "ttft": 405,
+        "output_speed": 126,
+        "ttft": 406,
         "price_blended": 201
       }
     },
@@ -26148,7 +26148,7 @@
         "aime": 23,
         "aime_25": 88,
         "output_speed": 147,
-        "ttft": 386,
+        "ttft": 384,
         "price_blended": 278
       }
     },
@@ -26184,9 +26184,9 @@
         "price_1m_output_tokens": 8.4
       },
       "speed": {
-        "output_tokens_per_second": 62.67,
-        "ttft_seconds": 1.205,
-        "ttfat_seconds": 33.118
+        "output_tokens_per_second": 62.194,
+        "ttft_seconds": 1.216,
+        "ttfat_seconds": 33.373
       },
       "ranks": {
         "intelligence_index": 273,
@@ -26200,8 +26200,8 @@
         "math_500": 59,
         "aime": 19,
         "aime_25": 61,
-        "output_speed": 216,
-        "ttft": 409,
+        "output_speed": 220,
+        "ttft": 412,
         "price_blended": 448
       }
     },
@@ -26343,9 +26343,9 @@
         "price_1m_output_tokens": 0.75
       },
       "speed": {
-        "output_tokens_per_second": 125.906,
-        "ttft_seconds": 1.186,
-        "ttfat_seconds": 17.071
+        "output_tokens_per_second": 125.835,
+        "ttft_seconds": 1.209,
+        "ttfat_seconds": 17.103
       },
       "ranks": {
         "intelligence_index": 276,
@@ -26360,7 +26360,7 @@
         "aime": null,
         "aime_25": 58,
         "output_speed": 116,
-        "ttft": 406,
+        "ttft": 410,
         "price_blended": 290
       }
     },
@@ -26519,7 +26519,7 @@
         "aime": 25,
         "aime_25": 188,
         "output_speed": 296,
-        "ttft": 259,
+        "ttft": 260,
         "price_blended": 349
       }
     },
@@ -26555,9 +26555,9 @@
         "price_1m_output_tokens": 6
       },
       "speed": {
-        "output_tokens_per_second": 54.561,
-        "ttft_seconds": 1.743,
-        "ttfat_seconds": 38.399
+        "output_tokens_per_second": 53.944,
+        "ttft_seconds": 1.761,
+        "ttfat_seconds": 38.837
       },
       "ranks": {
         "intelligence_index": 147,
@@ -26572,7 +26572,7 @@
         "aime": null,
         "aime_25": 59,
         "output_speed": 243,
-        "ttft": 468,
+        "ttft": 470,
         "price_blended": 444
       }
     },
@@ -26942,7 +26942,7 @@
         "math_500": 19,
         "aime": 36,
         "aime_25": 92,
-        "output_speed": 213,
+        "output_speed": 212,
         "ttft": 407,
         "price_blended": 295
       }
@@ -27048,8 +27048,8 @@
         "math_500": 11,
         "aime": 4,
         "aime_25": 22,
-        "output_speed": 204,
-        "ttft": 416,
+        "output_speed": 205,
+        "ttft": 417,
         "price_blended": 363
       }
     },
@@ -27314,7 +27314,7 @@
         "aime": 63,
         "aime_25": 160,
         "output_speed": 210,
-        "ttft": 457,
+        "ttft": 456,
         "price_blended": 339
       }
     },
@@ -27420,7 +27420,7 @@
         "aime": 86,
         "aime_25": 189,
         "output_speed": 132,
-        "ttft": 453,
+        "ttft": 452,
         "price_blended": 294
       }
     },
@@ -27472,8 +27472,8 @@
         "math_500": 23,
         "aime": 34,
         "aime_25": 105,
-        "output_speed": 59,
-        "ttft": 367,
+        "output_speed": 58,
+        "ttft": 366,
         "price_blended": 261
       }
     },
@@ -27526,7 +27526,7 @@
         "aime": null,
         "aime_25": 36,
         "output_speed": 229,
-        "ttft": 429,
+        "ttft": 430,
         "price_blended": 443
       }
     },
@@ -27578,8 +27578,8 @@
         "math_500": 71,
         "aime": 33,
         "aime_25": 212,
-        "output_speed": 220,
-        "ttft": 439,
+        "output_speed": 219,
+        "ttft": 440,
         "price_blended": 297
       }
     },
@@ -27632,7 +27632,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 180,
-        "ttft": 437,
+        "ttft": 438,
         "price_blended": 361
       }
     },
@@ -27738,7 +27738,7 @@
         "aime": 95,
         "aime_25": 199,
         "output_speed": 215,
-        "ttft": 438,
+        "ttft": 439,
         "price_blended": 248
       }
     },
@@ -27790,7 +27790,7 @@
         "math_500": 34,
         "aime": 29,
         "aime_25": 131,
-        "output_speed": 212,
+        "output_speed": 211,
         "ttft": 408,
         "price_blended": 348
       }
@@ -28002,8 +28002,8 @@
         "math_500": 22,
         "aime": 7,
         "aime_25": 127,
-        "output_speed": 93,
-        "ttft": 372,
+        "output_speed": 92,
+        "ttft": 371,
         "price_blended": 338
       }
     },
@@ -28055,8 +28055,8 @@
         "math_500": null,
         "aime": null,
         "aime_25": 191,
-        "output_speed": 96,
-        "ttft": 366,
+        "output_speed": 95,
+        "ttft": 365,
         "price_blended": 288
       }
     },
@@ -28162,7 +28162,7 @@
         "aime": null,
         "aime_25": null,
         "output_speed": 162,
-        "ttft": 441,
+        "ttft": 442,
         "price_blended": 378
       }
     },
@@ -28321,7 +28321,7 @@
         "aime": null,
         "aime_25": 100,
         "output_speed": 196,
-        "ttft": 387,
+        "ttft": 385,
         "price_blended": 403
       }
     },
@@ -28463,9 +28463,9 @@
         "price_1m_output_tokens": 0.29
       },
       "speed": {
-        "output_tokens_per_second": 114.361,
-        "ttft_seconds": 0.997,
-        "ttfat_seconds": 0.997
+        "output_tokens_per_second": 113.382,
+        "ttft_seconds": 1.01,
+        "ttfat_seconds": 1.01
       },
       "ranks": {
         "intelligence_index": 413,
@@ -28479,8 +28479,8 @@
         "math_500": 90,
         "aime": 91,
         "aime_25": 207,
-        "output_speed": 126,
-        "ttft": 370,
+        "output_speed": 128,
+        "ttft": 372,
         "price_blended": 215
       }
     },
@@ -28585,7 +28585,7 @@
         "math_500": 86,
         "aime": 89,
         "aime_25": 121,
-        "output_speed": 217,
+        "output_speed": 216,
         "ttft": 376,
         "price_blended": 300
       }
@@ -28622,9 +28622,9 @@
         "price_1m_output_tokens": 2.1
       },
       "speed": {
-        "output_tokens_per_second": 136.36,
-        "ttft_seconds": 1.104,
-        "ttfat_seconds": 15.771
+        "output_tokens_per_second": 136.039,
+        "ttft_seconds": 1.11,
+        "ttfat_seconds": 15.812
       },
       "ranks": {
         "intelligence_index": 317,
@@ -28692,7 +28692,7 @@
         "aime": null,
         "aime_25": 106,
         "output_speed": 224,
-        "ttft": 413,
+        "ttft": 414,
         "price_blended": 265
       }
     },
@@ -28851,7 +28851,7 @@
         "aime": null,
         "aime_25": 50,
         "output_speed": 289,
-        "ttft": 450,
+        "ttft": 449,
         "price_blended": 285
       }
     }
