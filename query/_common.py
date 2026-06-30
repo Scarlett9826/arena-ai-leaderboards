@@ -99,8 +99,13 @@ AA_RANK_KEYS: tuple[str, ...] = (
 BOARD_KEYWORD_ALIASES: dict[str, tuple[str, ...]] = {
     # --- 总榜 ---
     "总榜": ("text/overall", "intelligence_index"),
+    "总排名": ("text/overall", "intelligence_index"),
+    "全球排名": ("text/overall", "intelligence_index"),
+    "整体排名": ("text/overall", "intelligence_index"),
+    "整体表现": ("text/overall", "intelligence_index"),
     "overall": ("text/overall", "intelligence_index"),
     "综合": ("text/overall", "intelligence_index"),
+    "综合排名": ("text/overall", "intelligence_index"),
     "总分": ("text/overall", "intelligence_index"),
     "智能指数": ("intelligence_index",),
     "intelligence": ("intelligence_index",),
@@ -122,12 +127,16 @@ BOARD_KEYWORD_ALIASES: dict[str, tuple[str, ...]] = {
     "math": ("text/math", "industry_mathematical", "math_index", "math_500", "aime", "aime_25"),
     "aime": ("aime", "aime_25"),
 
-    # --- 推理 / 难题 / 知识 ---
+    # --- 推理 / 难题 / 知识 / 逻辑 ---
     "推理": ("text/hard_prompts", "text/expert", "gpqa", "hle", "intelligence_index"),
+    "逻辑": ("text/hard_prompts", "text/expert", "gpqa", "hle"),
+    "逻辑推理": ("text/hard_prompts", "text/expert", "gpqa", "hle"),
+    "reasoning": ("text/hard_prompts", "text/expert", "gpqa", "hle"),
     "难题": ("text/hard_prompts", "hle"),
     "hard": ("text/hard_prompts", "hle"),
     "专家": ("text/expert", "gpqa", "hle"),
     "知识": ("mmlu_pro", "gpqa"),
+    "知识储备": ("mmlu_pro", "gpqa"),
     "科学": ("scicode", "gpqa"),
     "科研": ("scicode", "gpqa"),
 
@@ -155,6 +164,7 @@ BOARD_KEYWORD_ALIASES: dict[str, tuple[str, ...]] = {
     # --- 创意写作 ---
     "写作": ("text/creative_writing", "vision/creative_writing"),
     "创意": ("text/creative_writing",),
+    "创作": ("text/creative_writing", "vision/creative_writing"),
     "创意写作": ("text/creative_writing", "vision/creative_writing"),
     "creative": ("text/creative_writing",),
     "creative_writing": ("text/creative_writing", "vision/creative_writing"),
@@ -197,19 +207,134 @@ BOARD_KEYWORD_ALIASES: dict[str, tuple[str, ...]] = {
 }
 
 
-def expand_subset_query(q: str) -> tuple[str, ...]:
-    """把用户传的 --subset 关键词展开成候选 board 子串列表。
+# 一些"形容词后缀"在中文里几乎无意义，剥掉后能让"编程能力"命中"编程"。
+_FUZZY_NOISE_SUFFIXES: tuple[str, ...] = (
+    "能力", "水平", "表现", "方面", "维度", "测试", "评测", "得分",
+    "分数", "排名", "榜单", "成绩", "情况", "怎么样", "如何",
+)
+# 这些"前缀"同理（"代数学" → "数学"，"全球排名" → 用其它逻辑处理）。
+_FUZZY_NOISE_PREFIXES: tuple[str, ...] = ("代", "做", "搞", "玩", "全球", "整体", "全部")
 
-    - 完全精确匹配优先（不区分大小写）。
-    - 没命中别名表 → 返回 (q,) 走老逻辑（子串匹配 board / subset）。
+
+def _strip_fuzzy_noise(s: str) -> str:
+    """剥掉中文里常见的修饰词后缀/前缀，得到一个更短的"核心词"。"""
+    cur = s.strip()
+    changed = True
+    while changed and cur:
+        changed = False
+        for suf in _FUZZY_NOISE_SUFFIXES:
+            if cur.endswith(suf) and len(cur) > len(suf):
+                cur = cur[: -len(suf)]
+                changed = True
+                break
+        for pre in _FUZZY_NOISE_PREFIXES:
+            if cur.startswith(pre) and len(cur) > len(pre):
+                cur = cur[len(pre) :]
+                changed = True
+                break
+    return cur
+
+
+def _all_known_keywords() -> list[str]:
+    """alias 表所有 key + 所有别名展开后的 board 子串，去重后用于 fuzzy 推荐。"""
+    seen: set[str] = set()
+    out: list[str] = []
+    for k, vs in BOARD_KEYWORD_ALIASES.items():
+        if k not in seen:
+            seen.add(k)
+            out.append(k)
+        for v in vs:
+            if v not in seen:
+                seen.add(v)
+                out.append(v)
+    return out
+
+
+def expand_subset_query(q: str) -> tuple[str, ...]:
+    """把用户传的 --subset 关键词模糊展开成候选 board 子串列表。
+
+    匹配优先级（从严到宽）：
+    1) 精确匹配 alias 表（大小写无关）
+    2) 剥掉"能力/水平/表现"等无意义后缀后再精确匹配
+    3) 用户输入是任一 alias key 的"超串"或"被包含"（互查子串）
+    4) 直接当作 board 子串原样返回（兼容用户自己输 `text/coding` 这种精确名）
     """
     if not q:
         return ()
-    key = q.strip().lower()
+    raw = q.strip()
+    key = raw.lower()
+
+    # 1) 精确命中
     if key in BOARD_KEYWORD_ALIASES:
         return BOARD_KEYWORD_ALIASES[key]
-    # 也允许原始中文 key 直接命中（不 lower 会丢中文吗？中文 lower 是幂等的，所以 ok）
-    return (q,)
+
+    # 2) 剥噪音后精确命中（"编程能力" → "编程"；"代数学" → "数学"）
+    stripped = _strip_fuzzy_noise(key)
+    if stripped and stripped != key and stripped in BOARD_KEYWORD_ALIASES:
+        return BOARD_KEYWORD_ALIASES[stripped]
+
+    # 3) 互相子串扫描（用户说"长文本理解"→ alias 表有"长文本"→命中）
+    #    也覆盖反向："code" → alias 表的 "coding"（用户输入是 alias 的子串）
+    hits: list[str] = []
+    seen_targets: set[str] = set()
+    for cand_key, cand_targets in BOARD_KEYWORD_ALIASES.items():
+        if cand_key in (key, stripped):
+            continue  # 已经在 1/2 处理
+        if (
+            cand_key in key            # alias 是用户输入的子串："编程" ⊂ "编程能力很强"
+            or cand_key in stripped
+            or key in cand_key         # 用户输入是 alias 的子串："code" ⊂ "coding"
+            or (stripped and stripped in cand_key)
+        ):
+            for t in cand_targets:
+                if t not in seen_targets:
+                    seen_targets.add(t)
+                    hits.append(t)
+    if hits:
+        return tuple(hits)
+
+    # 4) 原样返回（兼容 `text/coding`、`gpqa` 这种用户直接输精确 board 名）
+    #    同时也带上剥噪音版本作为备选，让 _filter_records 双重试
+    if stripped and stripped != raw:
+        return (raw, stripped)
+    return (raw,)
+
+
+def suggest_close_keywords(q: str, top_n: int = 5) -> list[str]:
+    """当 expand_subset_query 完全没命中真实数据时，推荐 Top-N 最接近的 alias key。
+
+    评分：
+    - 子串重叠（双向）：+2
+    - 字符集交集 ≥ 2：+1
+    - 编辑距离 ≤ 3（短词）：+1
+    """
+    if not q:
+        return []
+    raw = q.strip().lower()
+    stripped = _strip_fuzzy_noise(raw) or raw
+    scored: list[tuple[float, str]] = []
+    for kw in BOARD_KEYWORD_ALIASES.keys():
+        score = 0.0
+        if kw in raw or kw in stripped or raw in kw or stripped in kw:
+            score += 2
+        # 字符集交集（中文按字符算，英文按字符算）
+        common = set(kw) & (set(raw) | set(stripped))
+        if len(common) >= 2:
+            score += 1
+        # 长度差异惩罚
+        score -= 0.05 * abs(len(kw) - len(stripped))
+        if score > 0:
+            scored.append((score, kw))
+    scored.sort(key=lambda x: (-x[0], len(x[1])))
+    out: list[str] = []
+    seen: set[str] = set()
+    for _, kw in scored:
+        if kw not in seen:
+            seen.add(kw)
+            out.append(kw)
+        if len(out) >= top_n:
+            break
+    return out
 
 
 # board key -> ("section", "evaluation key" or attribute path).

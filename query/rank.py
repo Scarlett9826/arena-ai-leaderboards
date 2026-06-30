@@ -27,6 +27,7 @@ from query._common import (  # noqa: E402
     find_one_model,
     print_md,
     resolve_data_root,
+    suggest_close_keywords,
     log,
 )
 
@@ -403,7 +404,7 @@ def main(argv: list[str] | None = None) -> int:
     rows = _filter_records(records, group, args.board, args.subset)
     if not rows:
         # 看看展开后的关键词是否在"其它模型"身上能查到——
-        # 如果能，说明该模型在这些榜单上未测试；如果不能，说明关键词拼错了。
+        # 如果能，说明该模型在这些榜单上未测试；如果不能，说明关键词没识别出来。
         if args.subset:
             expanded = expand_subset_query(args.subset)
             cands_lc = tuple(c.lower() for c in expanded)
@@ -419,11 +420,22 @@ def main(argv: list[str] | None = None) -> int:
                     f"建议换个更宽的关键词（如 `数学` → `推理`），或不带 --subset 看全部排名。"
                 )
             else:
+                suggestions = suggest_close_keywords(args.subset, top_n=5)
+                sug_md = (
+                    "\n\n**你是不是想查**：" + "、".join(f"`{s}`" for s in suggestions)
+                    if suggestions
+                    else ""
+                )
                 body = (
                     f"找不到关键词 `{args.subset}` 对应的任何榜单。\n\n"
-                    f"该关键词展开为：{', '.join(f'`{e}`' for e in expanded)}（在所有模型上都查不到）\n\n"
-                    f"**LMArena 常用关键词**：`总榜` `代码` `数学` `中文` `推理` `指令` `长上下文` `多轮` `创意写作` `webdev`\n\n"
-                    f"**AA 常用关键词**：`总榜` `coding` `gpqa` `mmlu_pro` `hle` `aime` `速度` `价格`"
+                    f"已尝试展开为：{', '.join(f'`{e}`' for e in expanded)}（在所有模型上都查不到）"
+                    + sug_md
+                    + "\n\n**LMArena 常见维度**：`总榜` `代码` `数学` `中文` `推理` `指令遵循` "
+                    "`长上下文` `多轮` `创意写作` `前端` `视觉` `搜索` `文档`\n\n"
+                    "**AA 常见维度**：`总榜` `编程` `gpqa` `mmlu_pro` `hle` `aime` "
+                    "`scicode` `速度` `延迟` `价格`\n\n"
+                    "也可以直接传精确 board 名，例如 `text/coding`、`webdev-react`、"
+                    "`industry_legal_and_government`。"
                 )
             print_md(markdown_error("未找到匹配的子榜", body))
         else:
