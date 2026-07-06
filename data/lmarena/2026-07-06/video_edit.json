@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "source": "lmarena",
+    "subset": "video_edit",
+    "source_url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/video_edit/latest-00000-of-00001.parquet",
+    "fetched_at": "2026-07-06T05:10:51+00:00",
+    "leaderboard_publish_date": "2026-06-30",
+    "n_rows": 7,
+    "n_models": 7,
+    "categories": [
+      "overall"
+    ]
+  },
+  "rows": [
+    {
+      "category": "overall",
+      "rank": 1,
+      "model_name": "dreamina-seedance-2.0-720p",
+      "organization": "bytedance",
+      "license": "Proprietary",
+      "rating": 1377.1275786594224,
+      "rating_lower": 1365.5473525081907,
+      "rating_upper": 1388.7078048106537,
+      "variance": 34.90903950115328,
+      "vote_count": 3010
+    },
+    {
+      "category": "overall",
+      "rank": 2,
+      "model_name": "gemini-omni-flash",
+      "organization": "google",
+      "license": "Proprietary",
+      "rating": 1346.636335403753,
+      "rating_lower": 1330.9325683762713,
+      "rating_upper": 1362.3401024312352,
+      "variance": 64.19652282225098,
+      "vote_count": 998
+    },
+    {
+      "category": "overall",
+      "rank": 3,
+      "model_name": "happyhorse-1.0",
+      "organization": "aorizon",
+      "license": "Proprietary",
+      "rating": 1307.7995546088746,
+      "rating_lower": 1295.7359633427434,
+      "rating_upper": 1319.8631458750056,
+      "variance": 37.88410628074366,
+      "vote_count": 2681
+    },
+    {
+      "category": "overall",
+      "rank": 4,
+      "model_name": "grok-imagine-video",
+      "organization": "xai",
+      "license": "Proprietary",
+      "rating": 1264.0357965205521,
+      "rating_lower": 1256.4841347551364,
+      "rating_upper": 1271.5874582859678,
+      "variance": 14.845296560783373,
+      "vote_count": 11736
+    },
+    {
+      "category": "overall",
+      "rank": 5,
+      "model_name": "kling-o3-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1251.2391223153477,
+      "rating_lower": 1241.2756394452606,
+      "rating_upper": 1261.2026051854345,
+      "variance": 25.84200313894792,
+      "vote_count": 6165
+    },
+    {
+      "category": "overall",
+      "rank": 6,
+      "model_name": "kling-o1-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1203.0898221449793,
+      "rating_lower": 1194.2118340340685,
+      "rating_upper": 1211.9678102558905,
+      "variance": 20.51790129126907,
+      "vote_count": 8322
+    },
+    {
+      "category": "overall",
+      "rank": 7,
+      "model_name": "runway-gen4-aleph",
+      "organization": "runway",
+      "license": "Proprietary",
+      "rating": 1193.9705339545103,
+      "rating_lower": 1185.7550281935623,
+      "rating_upper": 1202.1860397154583,
+      "variance": 17.570026924296037,
+      "vote_count": 8368
+    }
+  ]
+}
