@@ -1,7 +1,7 @@
 {
-  "snapshot_date": "2026-07-14",
-  "fetched_at": "2026-07-14T03:56:39+00:00",
-  "llms": "2026-07-14/llms.json",
-  "summary": "2026-07-14/_summary.json",
-  "n_models": 573
+  "snapshot_date": "2026-07-15",
+  "fetched_at": "2026-07-15T03:57:40+00:00",
+  "llms": "2026-07-15/llms.json",
+  "summary": "2026-07-15/_summary.json",
+  "n_models": 574
 }
