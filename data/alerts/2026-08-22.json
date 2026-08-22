@@ -1,0 +1,16 @@
+{
+  "today": "2026-08-22",
+  "baseline": "2026-08-21",
+  "is_first_snapshot": false,
+  "lmarena": {
+    "today": "2026-08-22",
+    "baseline": "2026-08-21"
+  },
+  "artificial_analysis": {
+    "today": "2026-08-22",
+    "baseline": "2026-08-21"
+  },
+  "changes": [],
+  "today_entry_count": 30076,
+  "baseline_entry_count": 30076
+}
