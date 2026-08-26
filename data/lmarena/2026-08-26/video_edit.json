@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "source": "lmarena",
+    "subset": "video_edit",
+    "source_url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/video_edit/latest-00000-of-00001.parquet",
+    "fetched_at": "2026-08-26T02:24:08+00:00",
+    "leaderboard_publish_date": "2026-08-17",
+    "n_rows": 9,
+    "n_models": 9,
+    "categories": [
+      "overall"
+    ]
+  },
+  "rows": [
+    {
+      "category": "overall",
+      "rank": 1,
+      "model_name": "dreamina-seedance-2.5-720p",
+      "organization": "bytedance",
+      "license": "Proprietary",
+      "rating": 1410.779885380633,
+      "rating_lower": 1384.195483051011,
+      "rating_upper": 1437.3642877102548,
+      "variance": 183.97449516210156,
+      "vote_count": 403
+    },
+    {
+      "category": "overall",
+      "rank": 2,
+      "model_name": "minimax-h3",
+      "organization": "minimax",
+      "license": "minimax-h3-community-license-agreement",
+      "rating": 1388.206964373784,
+      "rating_lower": 1363.9329265082952,
+      "rating_upper": 1412.4810022392728,
+      "variance": 153.3867579475221,
+      "vote_count": 554
+    },
+    {
+      "category": "overall",
+      "rank": 3,
+      "model_name": "dreamina-seedance-2.0-720p",
+      "organization": "bytedance",
+      "license": "Proprietary",
+      "rating": 1359.4604929967986,
+      "rating_lower": 1345.5927345534674,
+      "rating_upper": 1373.32825144013,
+      "variance": 50.06294046589284,
+      "vote_count": 3634
+    },
+    {
+      "category": "overall",
+      "rank": 4,
+      "model_name": "gemini-omni-flash",
+      "organization": "google",
+      "license": "Proprietary",
+      "rating": 1357.8579959460512,
+      "rating_lower": 1343.2273120653183,
+      "rating_upper": 1372.488679826784,
+      "variance": 55.72281802548548,
+      "vote_count": 1868
+    },
+    {
+      "category": "overall",
+      "rank": 5,
+      "model_name": "happyhorse-1.0",
+      "organization": "aorizon",
+      "license": "Proprietary",
+      "rating": 1307.261673280915,
+      "rating_lower": 1294.0237847270187,
+      "rating_upper": 1320.4995618348112,
+      "variance": 45.61852711301745,
+      "vote_count": 3115
+    },
+    {
+      "category": "overall",
+      "rank": 6,
+      "model_name": "grok-imagine-video",
+      "organization": "xai",
+      "license": "Proprietary",
+      "rating": 1262.0279603788342,
+      "rating_lower": 1252.5009446615925,
+      "rating_upper": 1271.554976096076,
+      "variance": 23.627489636911164,
+      "vote_count": 13281
+    },
+    {
+      "category": "overall",
+      "rank": 7,
+      "model_name": "kling-o3-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1256.501032004815,
+      "rating_lower": 1244.6713705462025,
+      "rating_upper": 1268.330693463428,
+      "variance": 36.42910070297181,
+      "vote_count": 7125
+    },
+    {
+      "category": "overall",
+      "rank": 8,
+      "model_name": "kling-o1-pro",
+      "organization": "kling",
+      "license": "Proprietary",
+      "rating": 1199.8997930411101,
+      "rating_lower": 1189.874111359271,
+      "rating_upper": 1209.9254747229488,
+      "variance": 26.165656818728976,
+      "vote_count": 10104
+    },
+    {
+      "category": "overall",
+      "rank": 9,
+      "model_name": "runway-gen4-aleph",
+      "organization": "runway",
+      "license": "Proprietary",
+      "rating": 1182.9336743278802,
+      "rating_lower": 1174.5647318801666,
+      "rating_upper": 1191.3026167755938,
+      "variance": 18.23244787002211,
+      "vote_count": 9817
+    }
+  ]
+}
